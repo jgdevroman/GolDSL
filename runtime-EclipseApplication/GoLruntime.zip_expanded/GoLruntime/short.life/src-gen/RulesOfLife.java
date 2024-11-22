@@ -1,8 +1,8 @@
 package GameOfLife;
 
 import java.awt.Point;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.ArrayList;
 
 public class RulesOfLife {
 
@@ -27,22 +27,29 @@ public class RulesOfLife {
     private static void applyRules(boolean[][] gameBoard, ArrayList<Point> survivingCells, int i, int j, int surrounding) {
         if ((gameBoard[i][j]) && (surrounding == 2)) {
             survivingCells.add(new Point(i-1, j-1));
+            
         }
         if ((gameBoard[i][j]) && (surrounding == 3)) {
             survivingCells.add(new Point(i-1, j-1));
+            
         }
-        if ((!gameBoard[i][j]) && (surrounding < 3)) {
+        if ((!gameBoard[i][j]) && (surrounding > 3)) {
             survivingCells.add(new Point(i-1, j-1));
+            
+        }
+        if ((gameBoard[i][j]) && (surrounding == 1)) {
+            survivingCells.remove(new Point(i-1,j-1));
+            
         }
     }
-    
+
     public static ArrayList<Point> getCoordinates() {
-                    ArrayList<Point> coordinates;
-                    coordinates = new ArrayList<>(Arrays.asList(
-                        new Point(0, 5),
-                        new Point(6, 10),
-                        new Point(2, 8)
-                    ));
-                    return coordinates;
-                }
+        ArrayList<Point> coordinates;
+        coordinates = new ArrayList<>(Arrays.asList(
+            new Point(0, 5),
+            new Point(6, 10),
+            new Point(2, 8)
+        ));
+        return coordinates;
+    }
 }

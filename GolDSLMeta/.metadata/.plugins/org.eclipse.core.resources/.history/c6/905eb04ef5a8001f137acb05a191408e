@@ -4,15 +4,17 @@ import gameOfLife.model.gDSL.Model
 import gameOfLife.model.gDSL.Rule
 import gameOfLife.model.gDSL.CellState
 import gameOfLife.model.gDSL.Grid
+import gameOfLife.model.gDSL.RelationalOperator
+import gameOfLife.model.gDSL.Action
 
-class TextGenerator {
+class RuleGenerator {
 
     def static CharSequence toText(Model root) '''
         package GameOfLife;
 
         import java.awt.Point;
-        import java.util.ArrayList;
         import java.util.Arrays;
+        import java.util.ArrayList;
 
         public class RulesOfLife {
 
@@ -37,48 +39,55 @@ class TextGenerator {
             private static void applyRules(boolean[][] gameBoard, ArrayList<Point> survivingCells, int i, int j, int surrounding) {
                 «generateRuleLogic(root.rules)»
             }
-            
+
             public static ArrayList<Point> getCoordinates() {
-                            ArrayList<Point> coordinates;
-                            «IF root.getGrid() != null»
-                            coordinates = new ArrayList<>(Arrays.asList(
-                                «generateCoordinateLogic(root.getGrid())»
-                            ));
-                            «ELSE»
-                            coordinates = new ArrayList<>();
-                            System.out.println("No grid defined in the DSL.");
-                            «ENDIF»
-                            return coordinates;
-                        }
+                ArrayList<Point> coordinates;
+                «IF root.grid !== null»
+                coordinates = new ArrayList<>(Arrays.asList(
+                    «generateCoordinateLogic(root.grid)»
+                ));
+                «ELSE»
+                coordinates = new ArrayList<>();
+                «ENDIF»
+                return coordinates;
+            }
         }
     '''
 
     def static CharSequence generateRuleLogic(Iterable<Rule> rules) '''
         «FOR rule : rules»
-        if ((«getStateCondition(rule.state)») && (surrounding «translateOperator(rule.condition.operator.literal)» «rule.condition.value»)) {
-            survivingCells.add(new Point(i-1, j-1));
+        if ((«translateState(rule.state)») && (surrounding «translateOperator(rule.condition.operator)» «rule.condition.value»)) {
+            «translateAction(rule.action)»
         }
         «ENDFOR»
     '''
 
-    def static String getStateCondition(CellState state) {
-        if (state == CellState.ALIVE) {
-            return "gameBoard[i][j]"
-        } else {
-            return "!gameBoard[i][j]"
+    def static String translateState(CellState state) {
+        return if (state == CellState.ALIVE) "gameBoard[i][j]" else "!gameBoard[i][j]"
+    }
+
+    def static String translateOperator(RelationalOperator operator) {
+        switch (operator) {
+            case GREATER_THAN: return ">"
+            case LESS_THAN: return "<"
+            case EQUAL: return "=="
         }
     }
 
-    def static String translateOperator(String operator) {
-        switch(operator) {
-            case "=": return "=="
-            default: return operator
-        }
-    }
-    
+    def static CharSequence translateAction(Action action) '''
+        «IF action == Action.SURVIVE»
+        survivingCells.add(new Point(i-1, j-1));
+        «ELSEIF action == Action.BECOME_ALIVE»
+        survivingCells.add(new Point(i-1, j-1));
+        «ELSEIF action == Action.DIE»
+        survivingCells.add(new Point(i-1, j-1));
+        «ENDIF»
+        
+    '''
+
     def static CharSequence generateCoordinateLogic(Grid grid) '''
-        «FOR range : grid.getRanges() SEPARATOR ","»
-        new Point(«range.getStart()», «range.getEnd()»)
+        «FOR range : grid.ranges SEPARATOR ","»
+        new Point(«range.start», «range.end»)
         «ENDFOR»
     '''
 }

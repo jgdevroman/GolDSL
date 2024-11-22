@@ -38,7 +38,17 @@ public enum Action implements Enumerator
    * @generated
    * @ordered
    */
-  BECOME_ALIVE(1, "BECOME_ALIVE", "becomeAlive");
+  BECOME_ALIVE(1, "BECOME_ALIVE", "becomeAlive"),
+
+  /**
+   * The '<em><b>DIE</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DIE_VALUE
+   * @generated
+   * @ordered
+   */
+  DIE(2, "DIE", "die");
 
   /**
    * The '<em><b>SURVIVE</b></em>' literal value.
@@ -63,6 +73,17 @@ public enum Action implements Enumerator
   public static final int BECOME_ALIVE_VALUE = 1;
 
   /**
+   * The '<em><b>DIE</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DIE
+   * @model literal="die"
+   * @generated
+   * @ordered
+   */
+  public static final int DIE_VALUE = 2;
+
+  /**
    * An array of all the '<em><b>Action</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -73,6 +94,7 @@ public enum Action implements Enumerator
     {
       SURVIVE,
       BECOME_ALIVE,
+      DIE,
     };
 
   /**
@@ -139,6 +161,7 @@ public enum Action implements Enumerator
     {
       case SURVIVE_VALUE: return SURVIVE;
       case BECOME_ALIVE_VALUE: return BECOME_ALIVE;
+      case DIE_VALUE: return DIE;
     }
     return null;
   }

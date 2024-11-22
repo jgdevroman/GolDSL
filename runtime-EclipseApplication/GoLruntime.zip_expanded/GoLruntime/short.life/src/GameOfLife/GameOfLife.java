@@ -167,7 +167,11 @@ public class GameOfLife extends JFrame implements ActionListener {
     }
  
     private class GameBoard extends JPanel implements ComponentListener, MouseListener, MouseMotionListener, Runnable {
-        private Dimension d_gameBoardSize = null;
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 7322492684486033156L;
+		private Dimension d_gameBoardSize = null;
         private ArrayList<Point> point = new ArrayList<Point>(0);
  
         public GameBoard() {

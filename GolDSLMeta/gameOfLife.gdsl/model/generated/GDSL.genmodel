@@ -11,13 +11,14 @@
       <genEnumLiterals ecoreEnumLiteral="GDSL.ecore#//CellState/DEAD"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="GDSL.ecore#//RelationalOperator">
+      <genEnumLiterals ecoreEnumLiteral="GDSL.ecore#//RelationalOperator/GREATER_THAN"/>
       <genEnumLiterals ecoreEnumLiteral="GDSL.ecore#//RelationalOperator/LESS_THAN"/>
       <genEnumLiterals ecoreEnumLiteral="GDSL.ecore#//RelationalOperator/EQUAL"/>
-      <genEnumLiterals ecoreEnumLiteral="GDSL.ecore#//RelationalOperator/GREATER_THAN"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="GDSL.ecore#//Action">
       <genEnumLiterals ecoreEnumLiteral="GDSL.ecore#//Action/SURVIVE"/>
       <genEnumLiterals ecoreEnumLiteral="GDSL.ecore#//Action/BECOME_ALIVE"/>
+      <genEnumLiterals ecoreEnumLiteral="GDSL.ecore#//Action/DIE"/>
     </genEnums>
     <genClasses ecoreClass="GDSL.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GDSL.ecore#//Model/grid"/>

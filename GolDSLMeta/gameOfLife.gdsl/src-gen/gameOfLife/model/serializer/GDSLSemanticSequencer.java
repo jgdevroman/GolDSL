@@ -136,23 +136,11 @@ public class GDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Rule returns Rule
 	 *
 	 * Constraint:
-	 *     (state=CellState condition=Condition action=Action)
+	 *     (state=CellState condition=Condition? action=Action)
 	 * </pre>
 	 */
 	protected void sequence_Rule(ISerializationContext context, Rule semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.RULE__STATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.RULE__STATE));
-			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.RULE__CONDITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.RULE__CONDITION));
-			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.RULE__ACTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.RULE__ACTION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRuleAccess().getStateCellStateEnumRuleCall_0_0(), semanticObject.getState());
-		feeder.accept(grammarAccess.getRuleAccess().getConditionConditionParserRuleCall_2_0(), semanticObject.getCondition());
-		feeder.accept(grammarAccess.getRuleAccess().getActionActionEnumRuleCall_4_0(), semanticObject.getAction());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
