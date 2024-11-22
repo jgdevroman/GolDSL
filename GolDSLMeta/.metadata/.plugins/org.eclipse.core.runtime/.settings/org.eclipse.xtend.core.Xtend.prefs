@@ -1,7 +1,0 @@
-eclipse.preferences.version=1
-org.eclipse.xtend.core.Xtend.syntaxColorer.tokenStyles.xbase.abstract.class.bgColor=50,50,50
-org.eclipse.xtend.core.Xtend.syntaxColorer.tokenStyles.xbase.static.final.field.color=0,161,244
-org.eclipse.xtend.core.Xtend.syntaxColorer.tokenStyles.xtend.insignificant.template.text.color=11,134,244
-org.eclipse.xtend.core.Xtend.syntaxColorer.tokenStyles.xtend.richText.bgColor=47,47,47
-org.eclipse.xtend.core.Xtend.syntaxColorer.tokenStyles.xtend.richText.color=0,201,244
-org.eclipse.xtend.core.Xtend.syntaxColorer.tokenStyles.xtend.richText.delimiter.bgColor=50,50,50
