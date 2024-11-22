@@ -3,14 +3,14 @@ grammar gameOfLife.model.GDSL with org.eclipse.xtext.common.Terminals
 generate gDSL "http://www.model.gameOfLife/GDSL"
 
 Model: 
-    (grid=Grid)? // Optional grid definition
+    (grid=Grid)?
     rules+=Rule*;
 
 Grid:
-    'Grid' ranges+=Range (':' ranges+=Range)*;
+    'AliveCells:' coordinates+=Coordinate (':' coordinates+=Coordinate)*;
 
-Range:
-    start=INT '-' end=INT;
+Coordinate:
+    '(' start=INT ',' end=INT ')';
 
 Rule:
     'Rule:' 'if' 'cell' 'is' state=CellState
