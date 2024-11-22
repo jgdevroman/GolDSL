@@ -46,7 +46,7 @@ public class RulesOfLife {
     public static ArrayList<Point> getCoordinates() {
         ArrayList<Point> coordinates;
         coordinates = new ArrayList<>(Arrays.asList(
-            new Point(0, 5),
+            new Point(0, 59),
             new Point(6, 10),
             new Point(2, 8)
         ));

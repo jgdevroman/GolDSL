@@ -3,11 +3,69 @@
  */
 package gameOfLife.model.validation;
 
-/**
- * This class contains custom validation rules.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
- */
+import gameOfLife.model.gDSL.GDSLPackage;
+import gameOfLife.model.gDSL.Grid;
+import gameOfLife.model.gDSL.Range;
+import gameOfLife.model.gDSL.Rule;
+import java.util.AbstractMap;
+import java.util.HashSet;
+import java.util.function.Consumer;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.validation.Check;
+
 @SuppressWarnings("all")
 public class GDSLValidator extends AbstractGDSLValidator {
+  @Check
+  public void checkNeighborCondition(final Rule rule) {
+    if (((rule.getCondition().getValue() < 0) || (rule.getCondition().getValue() > 8))) {
+      this.error(
+        "Neighbor count must be between 0 and 8.", 
+        rule.getCondition(), 
+        null);
+    }
+  }
+
+  @Check
+  public void checkNoDuplicateCoordinates(final Grid grid) {
+    final HashSet<AbstractMap.SimpleEntry<Integer, Integer>> seenCoordinates = new HashSet<AbstractMap.SimpleEntry<Integer, Integer>>();
+    final Consumer<Range> _function = (Range range) -> {
+      int _start = range.getStart();
+      int _end = range.getEnd();
+      final AbstractMap.SimpleEntry<Integer, Integer> coordinate = new AbstractMap.SimpleEntry<Integer, Integer>(Integer.valueOf(_start), Integer.valueOf(_end));
+      boolean _add = seenCoordinates.add(coordinate);
+      boolean _not = (!_add);
+      if (_not) {
+        int _start_1 = range.getStart();
+        String _plus = ("Duplicate coordinate (" + Integer.valueOf(_start_1));
+        String _plus_1 = (_plus + ", ");
+        int _end_1 = range.getEnd();
+        String _plus_2 = (_plus_1 + Integer.valueOf(_end_1));
+        String _plus_3 = (_plus_2 + ") found in the grid.");
+        this.error(_plus_3, range, 
+          null);
+      }
+    };
+    grid.getRanges().forEach(_function);
+  }
+
+  @Check
+  public void checkGridWithinBoundaries(final Grid grid) {
+    EList<Range> ranges = grid.getRanges();
+    if ((ranges != null)) {
+      for (int i = 0; (i < ranges.size()); i++) {
+        {
+          int _start = ranges.get(i).getStart();
+          boolean _lessThan = (_start < 0);
+          if (_lessThan) {
+            this.error("Start range is out of bounds. Enter a valuer greater than 0.", GDSLPackage.Literals.RANGE__START);
+          }
+          int _end = ranges.get(i).getEnd();
+          boolean _greaterThan = (_end > 52);
+          if (_greaterThan) {
+            this.error("Start range is out of bounds. Enter a value smaller than 53", null);
+          }
+        }
+      }
+    }
+  }
 }

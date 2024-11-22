@@ -3,23 +3,55 @@
  */
 package gameOfLife.model.validation
 
+import org.eclipse.xtext.validation.Check
+import gameOfLife.model.gDSL.Grid
+import gameOfLife.model.gDSL.Rule
+import java.util.HashSet
+import java.util.AbstractMap.SimpleEntry
+import gameOfLife.model.gDSL.GDSLPackage.Literals
 
-/**
- * This class contains custom validation rules. 
- *
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
- */
+
 class GDSLValidator extends AbstractGDSLValidator {
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					GDSLPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
-	
+    @Check
+	def checkNeighborCondition(Rule rule) {
+	    if (rule.condition.value < 0 || rule.condition.value > 8) {
+	        error(
+	            "Neighbor count must be between 0 and 8.",
+	            rule.condition,
+	            null
+	        )
+	    }
+	}
+    
+    @Check
+    def checkNoDuplicateCoordinates(Grid grid) {
+        val seenCoordinates = new HashSet<SimpleEntry<Integer, Integer>>()
+
+        grid.ranges.forEach[range |
+            val coordinate = new SimpleEntry(range.start, range.end)
+            if (!seenCoordinates.add(coordinate)) {
+                error(
+                    "Duplicate coordinate (" + range.start + ", " + range.end + ") found in the grid.",
+                    range,
+                    null
+                )
+            }
+        ]
+    }
+    
+    @Check
+	def checkGridWithinBoundaries(Grid grid) {
+		var ranges  = grid.ranges;
+		if (ranges !== null) {
+			for (var i = 0; i < ranges.size; i++) {
+				if (ranges.get(i).getStart() < 0 ) {
+					error("Start range is out of bounds. Enter a valuer greater than 0.", Literals.RANGE__START)
+				}
+				if (ranges.get(i).getEnd() > 52 ) {
+					error("Start range is out of bounds. Enter a value smaller than 53", null)
+				}
+			}
+		}
+	}
 }
