@@ -2,9 +2,9 @@ package gameOfLife.model.generator;
 
 import gameOfLife.model.gDSL.Action;
 import gameOfLife.model.gDSL.CellState;
+import gameOfLife.model.gDSL.Coordinate;
 import gameOfLife.model.gDSL.Grid;
 import gameOfLife.model.gDSL.Model;
-import gameOfLife.model.gDSL.Range;
 import gameOfLife.model.gDSL.RelationalOperator;
 import gameOfLife.model.gDSL.Rule;
 import java.util.Objects;
@@ -208,19 +208,19 @@ public class RuleGenerator {
   public static CharSequence generateCoordinateLogic(final Grid grid) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      EList<Range> _ranges = grid.getRanges();
+      EList<Coordinate> _coordinates = grid.getCoordinates();
       boolean _hasElements = false;
-      for(final Range range : _ranges) {
+      for(final Coordinate coordinate : _coordinates) {
         if (!_hasElements) {
           _hasElements = true;
         } else {
           _builder.appendImmediate(",", "");
         }
         _builder.append("new Point(");
-        int _start = range.getStart();
+        int _start = coordinate.getStart();
         _builder.append(_start);
         _builder.append(", ");
-        int _end = range.getEnd();
+        int _end = coordinate.getEnd();
         _builder.append(_end);
         _builder.append(")");
         _builder.newLineIfNotEmpty();

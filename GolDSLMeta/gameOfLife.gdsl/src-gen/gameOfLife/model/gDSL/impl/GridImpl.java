@@ -3,9 +3,9 @@
  */
 package gameOfLife.model.gDSL.impl;
 
+import gameOfLife.model.gDSL.Coordinate;
 import gameOfLife.model.gDSL.GDSLPackage;
 import gameOfLife.model.gDSL.Grid;
-import gameOfLife.model.gDSL.Range;
 
 import java.util.Collection;
 
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link gameOfLife.model.gDSL.impl.GridImpl#getRanges <em>Ranges</em>}</li>
+ *   <li>{@link gameOfLife.model.gDSL.impl.GridImpl#getCoordinates <em>Coordinates</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +37,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class GridImpl extends MinimalEObjectImpl.Container implements Grid
 {
   /**
-   * The cached value of the '{@link #getRanges() <em>Ranges</em>}' containment reference list.
+   * The cached value of the '{@link #getCoordinates() <em>Coordinates</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRanges()
+   * @see #getCoordinates()
    * @generated
    * @ordered
    */
-  protected EList<Range> ranges;
+  protected EList<Coordinate> coordinates;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,13 +73,13 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid
    * @generated
    */
   @Override
-  public EList<Range> getRanges()
+  public EList<Coordinate> getCoordinates()
   {
-    if (ranges == null)
+    if (coordinates == null)
     {
-      ranges = new EObjectContainmentEList<Range>(Range.class, this, GDSLPackage.GRID__RANGES);
+      coordinates = new EObjectContainmentEList<Coordinate>(Coordinate.class, this, GDSLPackage.GRID__COORDINATES);
     }
-    return ranges;
+    return coordinates;
   }
 
   /**
@@ -92,8 +92,8 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid
   {
     switch (featureID)
     {
-      case GDSLPackage.GRID__RANGES:
-        return ((InternalEList<?>)getRanges()).basicRemove(otherEnd, msgs);
+      case GDSLPackage.GRID__COORDINATES:
+        return ((InternalEList<?>)getCoordinates()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +108,8 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid
   {
     switch (featureID)
     {
-      case GDSLPackage.GRID__RANGES:
-        return getRanges();
+      case GDSLPackage.GRID__COORDINATES:
+        return getCoordinates();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +125,9 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid
   {
     switch (featureID)
     {
-      case GDSLPackage.GRID__RANGES:
-        getRanges().clear();
-        getRanges().addAll((Collection<? extends Range>)newValue);
+      case GDSLPackage.GRID__COORDINATES:
+        getCoordinates().clear();
+        getCoordinates().addAll((Collection<? extends Coordinate>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +143,8 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid
   {
     switch (featureID)
     {
-      case GDSLPackage.GRID__RANGES:
-        getRanges().clear();
+      case GDSLPackage.GRID__COORDINATES:
+        getCoordinates().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,8 +160,8 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid
   {
     switch (featureID)
     {
-      case GDSLPackage.GRID__RANGES:
-        return ranges != null && !ranges.isEmpty();
+      case GDSLPackage.GRID__COORDINATES:
+        return coordinates != null && !coordinates.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -5,10 +5,10 @@ package gameOfLife.model.serializer;
 
 import com.google.inject.Inject;
 import gameOfLife.model.gDSL.Condition;
+import gameOfLife.model.gDSL.Coordinate;
 import gameOfLife.model.gDSL.GDSLPackage;
 import gameOfLife.model.gDSL.Grid;
 import gameOfLife.model.gDSL.Model;
-import gameOfLife.model.gDSL.Range;
 import gameOfLife.model.gDSL.Rule;
 import gameOfLife.model.services.GDSLGrammarAccess;
 import java.util.Set;
@@ -39,14 +39,14 @@ public class GDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case GDSLPackage.CONDITION:
 				sequence_Condition(context, (Condition) semanticObject); 
 				return; 
+			case GDSLPackage.COORDINATE:
+				sequence_Coordinate(context, (Coordinate) semanticObject); 
+				return; 
 			case GDSLPackage.GRID:
 				sequence_Grid(context, (Grid) semanticObject); 
 				return; 
 			case GDSLPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
-				return; 
-			case GDSLPackage.RANGE:
-				sequence_Range(context, (Range) semanticObject); 
 				return; 
 			case GDSLPackage.RULE:
 				sequence_Rule(context, (Rule) semanticObject); 
@@ -82,10 +82,33 @@ public class GDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Coordinate returns Coordinate
+	 *
+	 * Constraint:
+	 *     (start=INT end=INT)
+	 * </pre>
+	 */
+	protected void sequence_Coordinate(ISerializationContext context, Coordinate semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.COORDINATE__START) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.COORDINATE__START));
+			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.COORDINATE__END) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.COORDINATE__END));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCoordinateAccess().getStartINTTerminalRuleCall_1_0(), semanticObject.getStart());
+		feeder.accept(grammarAccess.getCoordinateAccess().getEndINTTerminalRuleCall_3_0(), semanticObject.getEnd());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Grid returns Grid
 	 *
 	 * Constraint:
-	 *     (ranges+=Range ranges+=Range*)
+	 *     (coordinates+=Coordinate coordinates+=Coordinate*)
 	 * </pre>
 	 */
 	protected void sequence_Grid(ISerializationContext context, Grid semanticObject) {
@@ -104,29 +127,6 @@ public class GDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Range returns Range
-	 *
-	 * Constraint:
-	 *     (start=INT end=INT)
-	 * </pre>
-	 */
-	protected void sequence_Range(ISerializationContext context, Range semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.RANGE__START) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.RANGE__START));
-			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.RANGE__END) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.RANGE__END));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRangeAccess().getStartINTTerminalRuleCall_0_0(), semanticObject.getStart());
-		feeder.accept(grammarAccess.getRangeAccess().getEndINTTerminalRuleCall_2_0(), semanticObject.getEnd());
-		feeder.finish();
 	}
 	
 	

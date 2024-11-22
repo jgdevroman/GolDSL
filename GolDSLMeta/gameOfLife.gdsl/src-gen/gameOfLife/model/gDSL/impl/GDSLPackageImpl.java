@@ -6,11 +6,11 @@ package gameOfLife.model.gDSL.impl;
 import gameOfLife.model.gDSL.Action;
 import gameOfLife.model.gDSL.CellState;
 import gameOfLife.model.gDSL.Condition;
+import gameOfLife.model.gDSL.Coordinate;
 import gameOfLife.model.gDSL.GDSLFactory;
 import gameOfLife.model.gDSL.GDSLPackage;
 import gameOfLife.model.gDSL.Grid;
 import gameOfLife.model.gDSL.Model;
-import gameOfLife.model.gDSL.Range;
 import gameOfLife.model.gDSL.RelationalOperator;
 import gameOfLife.model.gDSL.Rule;
 
@@ -49,7 +49,7 @@ public class GDSLPackageImpl extends EPackageImpl implements GDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass rangeEClass = null;
+  private EClass coordinateEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -198,7 +198,7 @@ public class GDSLPackageImpl extends EPackageImpl implements GDSLPackage
    * @generated
    */
   @Override
-  public EReference getGrid_Ranges()
+  public EReference getGrid_Coordinates()
   {
     return (EReference)gridEClass.getEStructuralFeatures().get(0);
   }
@@ -209,9 +209,9 @@ public class GDSLPackageImpl extends EPackageImpl implements GDSLPackage
    * @generated
    */
   @Override
-  public EClass getRange()
+  public EClass getCoordinate()
   {
-    return rangeEClass;
+    return coordinateEClass;
   }
 
   /**
@@ -220,9 +220,9 @@ public class GDSLPackageImpl extends EPackageImpl implements GDSLPackage
    * @generated
    */
   @Override
-  public EAttribute getRange_Start()
+  public EAttribute getCoordinate_Start()
   {
-    return (EAttribute)rangeEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)coordinateEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -231,9 +231,9 @@ public class GDSLPackageImpl extends EPackageImpl implements GDSLPackage
    * @generated
    */
   @Override
-  public EAttribute getRange_End()
+  public EAttribute getCoordinate_End()
   {
-    return (EAttribute)rangeEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)coordinateEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -382,11 +382,11 @@ public class GDSLPackageImpl extends EPackageImpl implements GDSLPackage
     createEReference(modelEClass, MODEL__RULES);
 
     gridEClass = createEClass(GRID);
-    createEReference(gridEClass, GRID__RANGES);
+    createEReference(gridEClass, GRID__COORDINATES);
 
-    rangeEClass = createEClass(RANGE);
-    createEAttribute(rangeEClass, RANGE__START);
-    createEAttribute(rangeEClass, RANGE__END);
+    coordinateEClass = createEClass(COORDINATE);
+    createEAttribute(coordinateEClass, COORDINATE__START);
+    createEAttribute(coordinateEClass, COORDINATE__END);
 
     ruleEClass = createEClass(RULE);
     createEAttribute(ruleEClass, RULE__STATE);
@@ -439,11 +439,11 @@ public class GDSLPackageImpl extends EPackageImpl implements GDSLPackage
     initEReference(getModel_Rules(), this.getRule(), null, "rules", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(gridEClass, Grid.class, "Grid", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getGrid_Ranges(), this.getRange(), null, "ranges", null, 0, -1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGrid_Coordinates(), this.getCoordinate(), null, "coordinates", null, 0, -1, Grid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(rangeEClass, Range.class, "Range", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRange_Start(), ecorePackage.getEInt(), "start", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRange_End(), ecorePackage.getEInt(), "end", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(coordinateEClass, Coordinate.class, "Coordinate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCoordinate_Start(), ecorePackage.getEInt(), "start", null, 0, 1, Coordinate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCoordinate_End(), ecorePackage.getEInt(), "end", null, 0, 1, Coordinate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRule_State(), this.getCellState(), "state", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -106,13 +106,13 @@ public interface GDSLPackage extends EPackage
   int GRID = 1;
 
   /**
-   * The feature id for the '<em><b>Ranges</b></em>' containment reference list.
+   * The feature id for the '<em><b>Coordinates</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GRID__RANGES = 0;
+  int GRID__COORDINATES = 0;
 
   /**
    * The number of structural features of the '<em>Grid</em>' class.
@@ -124,14 +124,14 @@ public interface GDSLPackage extends EPackage
   int GRID_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link gameOfLife.model.gDSL.impl.RangeImpl <em>Range</em>}' class.
+   * The meta object id for the '{@link gameOfLife.model.gDSL.impl.CoordinateImpl <em>Coordinate</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see gameOfLife.model.gDSL.impl.RangeImpl
-   * @see gameOfLife.model.gDSL.impl.GDSLPackageImpl#getRange()
+   * @see gameOfLife.model.gDSL.impl.CoordinateImpl
+   * @see gameOfLife.model.gDSL.impl.GDSLPackageImpl#getCoordinate()
    * @generated
    */
-  int RANGE = 2;
+  int COORDINATE = 2;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' attribute.
@@ -140,7 +140,7 @@ public interface GDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RANGE__START = 0;
+  int COORDINATE__START = 0;
 
   /**
    * The feature id for the '<em><b>End</b></em>' attribute.
@@ -149,16 +149,16 @@ public interface GDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RANGE__END = 1;
+  int COORDINATE__END = 1;
 
   /**
-   * The number of structural features of the '<em>Range</em>' class.
+   * The number of structural features of the '<em>Coordinate</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RANGE_FEATURE_COUNT = 2;
+  int COORDINATE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link gameOfLife.model.gDSL.impl.RuleImpl <em>Rule</em>}' class.
@@ -317,47 +317,47 @@ public interface GDSLPackage extends EPackage
   EClass getGrid();
 
   /**
-   * Returns the meta object for the containment reference list '{@link gameOfLife.model.gDSL.Grid#getRanges <em>Ranges</em>}'.
+   * Returns the meta object for the containment reference list '{@link gameOfLife.model.gDSL.Grid#getCoordinates <em>Coordinates</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Ranges</em>'.
-   * @see gameOfLife.model.gDSL.Grid#getRanges()
+   * @return the meta object for the containment reference list '<em>Coordinates</em>'.
+   * @see gameOfLife.model.gDSL.Grid#getCoordinates()
    * @see #getGrid()
    * @generated
    */
-  EReference getGrid_Ranges();
+  EReference getGrid_Coordinates();
 
   /**
-   * Returns the meta object for class '{@link gameOfLife.model.gDSL.Range <em>Range</em>}'.
+   * Returns the meta object for class '{@link gameOfLife.model.gDSL.Coordinate <em>Coordinate</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Range</em>'.
-   * @see gameOfLife.model.gDSL.Range
+   * @return the meta object for class '<em>Coordinate</em>'.
+   * @see gameOfLife.model.gDSL.Coordinate
    * @generated
    */
-  EClass getRange();
+  EClass getCoordinate();
 
   /**
-   * Returns the meta object for the attribute '{@link gameOfLife.model.gDSL.Range#getStart <em>Start</em>}'.
+   * Returns the meta object for the attribute '{@link gameOfLife.model.gDSL.Coordinate#getStart <em>Start</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Start</em>'.
-   * @see gameOfLife.model.gDSL.Range#getStart()
-   * @see #getRange()
+   * @see gameOfLife.model.gDSL.Coordinate#getStart()
+   * @see #getCoordinate()
    * @generated
    */
-  EAttribute getRange_Start();
+  EAttribute getCoordinate_Start();
 
   /**
-   * Returns the meta object for the attribute '{@link gameOfLife.model.gDSL.Range#getEnd <em>End</em>}'.
+   * Returns the meta object for the attribute '{@link gameOfLife.model.gDSL.Coordinate#getEnd <em>End</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>End</em>'.
-   * @see gameOfLife.model.gDSL.Range#getEnd()
-   * @see #getRange()
+   * @see gameOfLife.model.gDSL.Coordinate#getEnd()
+   * @see #getCoordinate()
    * @generated
    */
-  EAttribute getRange_End();
+  EAttribute getCoordinate_End();
 
   /**
    * Returns the meta object for class '{@link gameOfLife.model.gDSL.Rule <em>Rule</em>}'.
@@ -524,22 +524,22 @@ public interface GDSLPackage extends EPackage
     EClass GRID = eINSTANCE.getGrid();
 
     /**
-     * The meta object literal for the '<em><b>Ranges</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Coordinates</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference GRID__RANGES = eINSTANCE.getGrid_Ranges();
+    EReference GRID__COORDINATES = eINSTANCE.getGrid_Coordinates();
 
     /**
-     * The meta object literal for the '{@link gameOfLife.model.gDSL.impl.RangeImpl <em>Range</em>}' class.
+     * The meta object literal for the '{@link gameOfLife.model.gDSL.impl.CoordinateImpl <em>Coordinate</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see gameOfLife.model.gDSL.impl.RangeImpl
-     * @see gameOfLife.model.gDSL.impl.GDSLPackageImpl#getRange()
+     * @see gameOfLife.model.gDSL.impl.CoordinateImpl
+     * @see gameOfLife.model.gDSL.impl.GDSLPackageImpl#getCoordinate()
      * @generated
      */
-    EClass RANGE = eINSTANCE.getRange();
+    EClass COORDINATE = eINSTANCE.getCoordinate();
 
     /**
      * The meta object literal for the '<em><b>Start</b></em>' attribute feature.
@@ -547,7 +547,7 @@ public interface GDSLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute RANGE__START = eINSTANCE.getRange_Start();
+    EAttribute COORDINATE__START = eINSTANCE.getCoordinate_Start();
 
     /**
      * The meta object literal for the '<em><b>End</b></em>' attribute feature.
@@ -555,7 +555,7 @@ public interface GDSLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute RANGE__END = eINSTANCE.getRange_End();
+    EAttribute COORDINATE__END = eINSTANCE.getCoordinate_End();
 
     /**
      * The meta object literal for the '{@link gameOfLife.model.gDSL.impl.RuleImpl <em>Rule</em>}' class.

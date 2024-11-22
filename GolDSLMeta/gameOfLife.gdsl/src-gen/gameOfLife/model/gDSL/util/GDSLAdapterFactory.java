@@ -86,9 +86,9 @@ public class GDSLAdapterFactory extends AdapterFactoryImpl
         return createGridAdapter();
       }
       @Override
-      public Adapter caseRange(Range object)
+      public Adapter caseCoordinate(Coordinate object)
       {
-        return createRangeAdapter();
+        return createCoordinateAdapter();
       }
       @Override
       public Adapter caseRule(Rule object)
@@ -153,16 +153,16 @@ public class GDSLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link gameOfLife.model.gDSL.Range <em>Range</em>}'.
+   * Creates a new adapter for an object of class '{@link gameOfLife.model.gDSL.Coordinate <em>Coordinate</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see gameOfLife.model.gDSL.Range
+   * @see gameOfLife.model.gDSL.Coordinate
    * @generated
    */
-  public Adapter createRangeAdapter()
+  public Adapter createCoordinateAdapter()
   {
     return null;
   }

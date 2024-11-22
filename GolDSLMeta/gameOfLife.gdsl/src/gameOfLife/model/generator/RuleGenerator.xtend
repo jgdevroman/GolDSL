@@ -86,8 +86,8 @@ class RuleGenerator {
     '''
 
     def static CharSequence generateCoordinateLogic(Grid grid) '''
-        «FOR range : grid.ranges SEPARATOR ","»
-        new Point(«range.start», «range.end»)
+        «FOR coordinate : grid.coordinates SEPARATOR ","»
+        new Point(«coordinate.start», «coordinate.end»)
         «ENDFOR»
     '''
 }

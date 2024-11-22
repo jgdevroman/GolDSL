@@ -3,8 +3,8 @@
  */
 package gameOfLife.model.gDSL.impl;
 
+import gameOfLife.model.gDSL.Coordinate;
 import gameOfLife.model.gDSL.GDSLPackage;
-import gameOfLife.model.gDSL.Range;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -15,19 +15,19 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Range</b></em>'.
+ * An implementation of the model object '<em><b>Coordinate</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link gameOfLife.model.gDSL.impl.RangeImpl#getStart <em>Start</em>}</li>
- *   <li>{@link gameOfLife.model.gDSL.impl.RangeImpl#getEnd <em>End</em>}</li>
+ *   <li>{@link gameOfLife.model.gDSL.impl.CoordinateImpl#getStart <em>Start</em>}</li>
+ *   <li>{@link gameOfLife.model.gDSL.impl.CoordinateImpl#getEnd <em>End</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RangeImpl extends MinimalEObjectImpl.Container implements Range
+public class CoordinateImpl extends MinimalEObjectImpl.Container implements Coordinate
 {
   /**
    * The default value of the '{@link #getStart() <em>Start</em>}' attribute.
@@ -74,7 +74,7 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RangeImpl()
+  protected CoordinateImpl()
   {
     super();
   }
@@ -87,7 +87,7 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
   @Override
   protected EClass eStaticClass()
   {
-    return GDSLPackage.Literals.RANGE;
+    return GDSLPackage.Literals.COORDINATE;
   }
 
   /**
@@ -112,7 +112,7 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
     int oldStart = start;
     start = newStart;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GDSLPackage.RANGE__START, oldStart, start));
+      eNotify(new ENotificationImpl(this, Notification.SET, GDSLPackage.COORDINATE__START, oldStart, start));
   }
 
   /**
@@ -137,7 +137,7 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
     int oldEnd = end;
     end = newEnd;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GDSLPackage.RANGE__END, oldEnd, end));
+      eNotify(new ENotificationImpl(this, Notification.SET, GDSLPackage.COORDINATE__END, oldEnd, end));
   }
 
   /**
@@ -150,9 +150,9 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
   {
     switch (featureID)
     {
-      case GDSLPackage.RANGE__START:
+      case GDSLPackage.COORDINATE__START:
         return getStart();
-      case GDSLPackage.RANGE__END:
+      case GDSLPackage.COORDINATE__END:
         return getEnd();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -168,10 +168,10 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
   {
     switch (featureID)
     {
-      case GDSLPackage.RANGE__START:
+      case GDSLPackage.COORDINATE__START:
         setStart((Integer)newValue);
         return;
-      case GDSLPackage.RANGE__END:
+      case GDSLPackage.COORDINATE__END:
         setEnd((Integer)newValue);
         return;
     }
@@ -188,10 +188,10 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
   {
     switch (featureID)
     {
-      case GDSLPackage.RANGE__START:
+      case GDSLPackage.COORDINATE__START:
         setStart(START_EDEFAULT);
         return;
-      case GDSLPackage.RANGE__END:
+      case GDSLPackage.COORDINATE__END:
         setEnd(END_EDEFAULT);
         return;
     }
@@ -208,9 +208,9 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
   {
     switch (featureID)
     {
-      case GDSLPackage.RANGE__START:
+      case GDSLPackage.COORDINATE__START:
         return start != START_EDEFAULT;
-      case GDSLPackage.RANGE__END:
+      case GDSLPackage.COORDINATE__END:
         return end != END_EDEFAULT;
     }
     return super.eIsSet(featureID);
@@ -235,4 +235,4 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
     return result.toString();
   }
 
-} //RangeImpl
+} //CoordinateImpl

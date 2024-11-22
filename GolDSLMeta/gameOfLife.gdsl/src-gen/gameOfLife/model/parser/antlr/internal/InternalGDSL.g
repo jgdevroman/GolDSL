@@ -134,25 +134,25 @@ ruleGrid returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Grid'
+		otherlv_0='AliveCells:'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getGridAccess().getGridKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getGridAccess().getAliveCellsKeyword_0());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGridAccess().getRangesRangeParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getGridAccess().getCoordinatesCoordinateParserRuleCall_1_0());
 				}
-				lv_ranges_1_0=ruleRange
+				lv_coordinates_1_0=ruleCoordinate
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGridRule());
 					}
 					add(
 						$current,
-						"ranges",
-						lv_ranges_1_0,
-						"gameOfLife.model.GDSL.Range");
+						"coordinates",
+						lv_coordinates_1_0,
+						"gameOfLife.model.GDSL.Coordinate");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -165,18 +165,18 @@ ruleGrid returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getGridAccess().getRangesRangeParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getGridAccess().getCoordinatesCoordinateParserRuleCall_2_1_0());
 					}
-					lv_ranges_3_0=ruleRange
+					lv_coordinates_3_0=ruleCoordinate
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getGridRule());
 						}
 						add(
 							$current,
-							"ranges",
-							lv_ranges_3_0,
-							"gameOfLife.model.GDSL.Range");
+							"coordinates",
+							lv_coordinates_3_0,
+							"gameOfLife.model.GDSL.Coordinate");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -185,15 +185,15 @@ ruleGrid returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleRange
-entryRuleRange returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getRangeRule()); }
-	iv_ruleRange=ruleRange
-	{ $current=$iv_ruleRange.current; }
+// Entry rule entryRuleCoordinate
+entryRuleCoordinate returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCoordinateRule()); }
+	iv_ruleCoordinate=ruleCoordinate
+	{ $current=$iv_ruleCoordinate.current; }
 	EOF;
 
-// Rule Range
-ruleRange returns [EObject current=null]
+// Rule Coordinate
+ruleCoordinate returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -201,46 +201,54 @@ ruleRange returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0='('
+		{
+			newLeafNode(otherlv_0, grammarAccess.getCoordinateAccess().getLeftParenthesisKeyword_0());
+		}
 		(
 			(
-				lv_start_0_0=RULE_INT
+				lv_start_1_0=RULE_INT
 				{
-					newLeafNode(lv_start_0_0, grammarAccess.getRangeAccess().getStartINTTerminalRuleCall_0_0());
+					newLeafNode(lv_start_1_0, grammarAccess.getCoordinateAccess().getStartINTTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getRangeRule());
+						$current = createModelElement(grammarAccess.getCoordinateRule());
 					}
 					setWithLastConsumed(
 						$current,
 						"start",
-						lv_start_0_0,
+						lv_start_1_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
 		)
-		otherlv_1='-'
+		otherlv_2=','
 		{
-			newLeafNode(otherlv_1, grammarAccess.getRangeAccess().getHyphenMinusKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getCoordinateAccess().getCommaKeyword_2());
 		}
 		(
 			(
-				lv_end_2_0=RULE_INT
+				lv_end_3_0=RULE_INT
 				{
-					newLeafNode(lv_end_2_0, grammarAccess.getRangeAccess().getEndINTTerminalRuleCall_2_0());
+					newLeafNode(lv_end_3_0, grammarAccess.getCoordinateAccess().getEndINTTerminalRuleCall_3_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getRangeRule());
+						$current = createModelElement(grammarAccess.getCoordinateRule());
 					}
 					setWithLastConsumed(
 						$current,
 						"end",
-						lv_end_2_0,
+						lv_end_3_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
 		)
+		otherlv_4=')'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getCoordinateAccess().getRightParenthesisKeyword_4());
+		}
 	)
 ;
 

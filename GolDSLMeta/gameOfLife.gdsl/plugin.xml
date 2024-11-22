@@ -4,7 +4,7 @@
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package
 			uri = "http://www.model.gameOfLife/GDSL"
-			class = "gameOfLife.model.gameOfLife.GameOfLifePackage"
+			class = "gameOfLife.model.gDSL.GDSLPackage"
 			genModel = "model/generated/GDSL.genmodel" />
 	</extension>
 </plugin>

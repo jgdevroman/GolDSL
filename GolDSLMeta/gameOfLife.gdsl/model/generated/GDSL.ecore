@@ -7,10 +7,10 @@
         eType="#//Rule" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Grid">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ranges" upperBound="-1"
-        eType="#//Range" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coordinates" upperBound="-1"
+        eType="#//Coordinate" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Range">
+  <eClassifiers xsi:type="ecore:EClass" name="Coordinate">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="end" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>

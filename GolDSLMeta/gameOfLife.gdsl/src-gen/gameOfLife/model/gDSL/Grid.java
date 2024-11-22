@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link gameOfLife.model.gDSL.Grid#getRanges <em>Ranges</em>}</li>
+ *   <li>{@link gameOfLife.model.gDSL.Grid#getCoordinates <em>Coordinates</em>}</li>
  * </ul>
  *
  * @see gameOfLife.model.gDSL.GDSLPackage#getGrid()
@@ -26,15 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Grid extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Ranges</b></em>' containment reference list.
-   * The list contents are of type {@link gameOfLife.model.gDSL.Range}.
+   * Returns the value of the '<em><b>Coordinates</b></em>' containment reference list.
+   * The list contents are of type {@link gameOfLife.model.gDSL.Coordinate}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Ranges</em>' containment reference list.
-   * @see gameOfLife.model.gDSL.GDSLPackage#getGrid_Ranges()
+   * @return the value of the '<em>Coordinates</em>' containment reference list.
+   * @see gameOfLife.model.gDSL.GDSLPackage#getGrid_Coordinates()
    * @model containment="true"
    * @generated
    */
-  EList<Range> getRanges();
+  EList<Coordinate> getCoordinates();
 
 } // Grid

@@ -68,7 +68,7 @@ public class GDSLFactoryImpl extends EFactoryImpl implements GDSLFactory
     {
       case GDSLPackage.MODEL: return createModel();
       case GDSLPackage.GRID: return createGrid();
-      case GDSLPackage.RANGE: return createRange();
+      case GDSLPackage.COORDINATE: return createCoordinate();
       case GDSLPackage.RULE: return createRule();
       case GDSLPackage.CONDITION: return createCondition();
       default:
@@ -148,10 +148,10 @@ public class GDSLFactoryImpl extends EFactoryImpl implements GDSLFactory
    * @generated
    */
   @Override
-  public Range createRange()
+  public Coordinate createCoordinate()
   {
-    RangeImpl range = new RangeImpl();
-    return range;
+    CoordinateImpl coordinate = new CoordinateImpl();
+    return coordinate;
   }
 
   /**

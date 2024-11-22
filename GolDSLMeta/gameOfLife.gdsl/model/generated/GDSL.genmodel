@@ -25,11 +25,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GDSL.ecore#//Model/rules"/>
     </genClasses>
     <genClasses ecoreClass="GDSL.ecore#//Grid">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GDSL.ecore#//Grid/ranges"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GDSL.ecore#//Grid/coordinates"/>
     </genClasses>
-    <genClasses ecoreClass="GDSL.ecore#//Range">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GDSL.ecore#//Range/start"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GDSL.ecore#//Range/end"/>
+    <genClasses ecoreClass="GDSL.ecore#//Coordinate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GDSL.ecore#//Coordinate/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GDSL.ecore#//Coordinate/end"/>
     </genClasses>
     <genClasses ecoreClass="GDSL.ecore#//Rule">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GDSL.ecore#//Rule/state"/>

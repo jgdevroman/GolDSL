@@ -42,13 +42,13 @@ public interface GDSLFactory extends EFactory
   Grid createGrid();
 
   /**
-   * Returns a new object of class '<em>Range</em>'.
+   * Returns a new object of class '<em>Coordinate</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Range</em>'.
+   * @return a new object of class '<em>Coordinate</em>'.
    * @generated
    */
-  Range createRange();
+  Coordinate createCoordinate();
 
   /**
    * Returns a new object of class '<em>Rule</em>'.

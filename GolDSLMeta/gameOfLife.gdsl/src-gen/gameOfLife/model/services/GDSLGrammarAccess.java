@@ -33,11 +33,11 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cRulesRuleParserRuleCall_1_0 = (RuleCall)cRulesAssignment_1.eContents().get(0);
 		
 		//Model:
-		//    (grid=Grid)? // Optional grid definition
+		//    (grid=Grid)?
 		//    rules+=Rule*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(grid=Grid)? // Optional grid definition
+		//(grid=Grid)?
 		//rules+=Rule*
 		public Group getGroup() { return cGroup; }
 		
@@ -47,8 +47,7 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//Grid
 		public RuleCall getGridGridParserRuleCall_0_0() { return cGridGridParserRuleCall_0_0; }
 		
-		//// Optional grid definition
-		//   rules+=Rule*
+		//rules+=Rule*
 		public Assignment getRulesAssignment_1() { return cRulesAssignment_1; }
 		
 		//Rule
@@ -57,72 +56,80 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	public class GridElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "gameOfLife.model.GDSL.Grid");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cGridKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cRangesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cRangesRangeParserRuleCall_1_0 = (RuleCall)cRangesAssignment_1.eContents().get(0);
+		private final Keyword cAliveCellsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cCoordinatesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCoordinatesCoordinateParserRuleCall_1_0 = (RuleCall)cCoordinatesAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cColonKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cRangesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cRangesRangeParserRuleCall_2_1_0 = (RuleCall)cRangesAssignment_2_1.eContents().get(0);
+		private final Assignment cCoordinatesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cCoordinatesCoordinateParserRuleCall_2_1_0 = (RuleCall)cCoordinatesAssignment_2_1.eContents().get(0);
 		
 		//Grid:
-		//    'Grid' ranges+=Range (':' ranges+=Range)*;
+		//    'AliveCells:' coordinates+=Coordinate (':' coordinates+=Coordinate)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Grid' ranges+=Range (':' ranges+=Range)*
+		//'AliveCells:' coordinates+=Coordinate (':' coordinates+=Coordinate)*
 		public Group getGroup() { return cGroup; }
 		
-		//'Grid'
-		public Keyword getGridKeyword_0() { return cGridKeyword_0; }
+		//'AliveCells:'
+		public Keyword getAliveCellsKeyword_0() { return cAliveCellsKeyword_0; }
 		
-		//ranges+=Range
-		public Assignment getRangesAssignment_1() { return cRangesAssignment_1; }
+		//coordinates+=Coordinate
+		public Assignment getCoordinatesAssignment_1() { return cCoordinatesAssignment_1; }
 		
-		//Range
-		public RuleCall getRangesRangeParserRuleCall_1_0() { return cRangesRangeParserRuleCall_1_0; }
+		//Coordinate
+		public RuleCall getCoordinatesCoordinateParserRuleCall_1_0() { return cCoordinatesCoordinateParserRuleCall_1_0; }
 		
-		//(':' ranges+=Range)*
+		//(':' coordinates+=Coordinate)*
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//':'
 		public Keyword getColonKeyword_2_0() { return cColonKeyword_2_0; }
 		
-		//ranges+=Range
-		public Assignment getRangesAssignment_2_1() { return cRangesAssignment_2_1; }
+		//coordinates+=Coordinate
+		public Assignment getCoordinatesAssignment_2_1() { return cCoordinatesAssignment_2_1; }
 		
-		//Range
-		public RuleCall getRangesRangeParserRuleCall_2_1_0() { return cRangesRangeParserRuleCall_2_1_0; }
+		//Coordinate
+		public RuleCall getCoordinatesCoordinateParserRuleCall_2_1_0() { return cCoordinatesCoordinateParserRuleCall_2_1_0; }
 	}
-	public class RangeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "gameOfLife.model.GDSL.Range");
+	public class CoordinateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "gameOfLife.model.GDSL.Coordinate");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cStartAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cStartINTTerminalRuleCall_0_0 = (RuleCall)cStartAssignment_0.eContents().get(0);
-		private final Keyword cHyphenMinusKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cEndAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cEndINTTerminalRuleCall_2_0 = (RuleCall)cEndAssignment_2.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cStartAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cStartINTTerminalRuleCall_1_0 = (RuleCall)cStartAssignment_1.eContents().get(0);
+		private final Keyword cCommaKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cEndAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cEndINTTerminalRuleCall_3_0 = (RuleCall)cEndAssignment_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//Range:
-		//    start=INT '-' end=INT;
+		//Coordinate:
+		//    '(' start=INT ',' end=INT ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//start=INT '-' end=INT
+		//'(' start=INT ',' end=INT ')'
 		public Group getGroup() { return cGroup; }
 		
+		//'('
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		
 		//start=INT
-		public Assignment getStartAssignment_0() { return cStartAssignment_0; }
+		public Assignment getStartAssignment_1() { return cStartAssignment_1; }
 		
 		//INT
-		public RuleCall getStartINTTerminalRuleCall_0_0() { return cStartINTTerminalRuleCall_0_0; }
+		public RuleCall getStartINTTerminalRuleCall_1_0() { return cStartINTTerminalRuleCall_1_0; }
 		
-		//'-'
-		public Keyword getHyphenMinusKeyword_1() { return cHyphenMinusKeyword_1; }
+		//','
+		public Keyword getCommaKeyword_2() { return cCommaKeyword_2; }
 		
 		//end=INT
-		public Assignment getEndAssignment_2() { return cEndAssignment_2; }
+		public Assignment getEndAssignment_3() { return cEndAssignment_3; }
 		
 		//INT
-		public RuleCall getEndINTTerminalRuleCall_2_0() { return cEndINTTerminalRuleCall_2_0; }
+		public RuleCall getEndINTTerminalRuleCall_3_0() { return cEndINTTerminalRuleCall_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
 	public class RuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "gameOfLife.model.GDSL.Rule");
@@ -333,7 +340,7 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	private final ModelElements pModel;
 	private final GridElements pGrid;
-	private final RangeElements pRange;
+	private final CoordinateElements pCoordinate;
 	private final RuleElements pRule;
 	private final CellStateElements eCellState;
 	private final ConditionElements pCondition;
@@ -351,7 +358,7 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
 		this.pGrid = new GridElements();
-		this.pRange = new RangeElements();
+		this.pCoordinate = new CoordinateElements();
 		this.pRule = new RuleElements();
 		this.eCellState = new CellStateElements();
 		this.pCondition = new ConditionElements();
@@ -387,7 +394,7 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 
 	
 	//Model:
-	//    (grid=Grid)? // Optional grid definition
+	//    (grid=Grid)?
 	//    rules+=Rule*;
 	public ModelElements getModelAccess() {
 		return pModel;
@@ -398,7 +405,7 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Grid:
-	//    'Grid' ranges+=Range (':' ranges+=Range)*;
+	//    'AliveCells:' coordinates+=Coordinate (':' coordinates+=Coordinate)*;
 	public GridElements getGridAccess() {
 		return pGrid;
 	}
@@ -407,14 +414,14 @@ public class GDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		return getGridAccess().getRule();
 	}
 	
-	//Range:
-	//    start=INT '-' end=INT;
-	public RangeElements getRangeAccess() {
-		return pRange;
+	//Coordinate:
+	//    '(' start=INT ',' end=INT ')';
+	public CoordinateElements getCoordinateAccess() {
+		return pCoordinate;
 	}
 	
-	public ParserRule getRangeRule() {
-		return getRangeAccess().getRule();
+	public ParserRule getCoordinateRule() {
+		return getCoordinateAccess().getRule();
 	}
 	
 	//Rule:
