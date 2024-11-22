@@ -6,6 +6,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import javax.swing.*;
+
  
 /**
  * Conway's game of life is a cellular automaton devised by the
@@ -15,6 +16,7 @@ public class GameOfLife extends JFrame implements ActionListener {
     private static final Dimension DEFAULT_WINDOW_SIZE = new Dimension(800, 600);
     private static final Dimension MINIMUM_WINDOW_SIZE = new Dimension(400, 400);
     private static final int BLOCK_SIZE = 10;
+    private boolean isGridInitialized = false;
  
     private JMenuBar mb_menu;
     private JMenu m_file, m_game, m_help;
@@ -173,6 +175,7 @@ public class GameOfLife extends JFrame implements ActionListener {
 		private static final long serialVersionUID = 7322492684486033156L;
 		private Dimension d_gameBoardSize = null;
         private ArrayList<Point> point = new ArrayList<Point>(0);
+        private boolean grid_initialized = false;
  
         public GameBoard() {
             // Add resizing listener
@@ -214,6 +217,23 @@ public class GameOfLife extends JFrame implements ActionListener {
         public void resetBoard() {
             point.clear();
         }
+        
+        public void initialBoard() {
+            // Clear the board before initializing
+            point.clear();
+
+            // Fetch coordinates from the RulesOfLife.getCoordinates() method
+            ArrayList<Point> dslCoordinates = RulesOfLife.getCoordinates();
+
+            // Add each point to the board using the addPoint method
+            for (Point p : dslCoordinates) {
+                if ((p.x >= 0 && p.x < d_gameBoardSize.width) && (p.y >= 0 && p.y < d_gameBoardSize.height)) {
+                    addPoint(p.x, p.y);
+                } else {
+                    System.out.println("Skipping out-of-bounds coordinate: " + p);
+                }
+            }
+        }
  
         public void randomlyFillBoard(int percent) {
             for (int i=0; i<d_gameBoardSize.width; i++) {
@@ -248,8 +268,13 @@ public class GameOfLife extends JFrame implements ActionListener {
         @Override
         public void componentResized(ComponentEvent e) {
             // Setup the game board size with proper boundries
-            d_gameBoardSize = new Dimension(getWidth()/BLOCK_SIZE-2, getHeight()/BLOCK_SIZE-2);
-            updateArraySize();
+        	if(!grid_initialized) {
+        		d_gameBoardSize = new Dimension(getWidth()/BLOCK_SIZE-2, getHeight()/BLOCK_SIZE-2);
+                updateArraySize();
+                grid_initialized = true;
+                initialBoard();
+
+        	}
         }
         @Override
         public void componentMoved(ComponentEvent e) {}
