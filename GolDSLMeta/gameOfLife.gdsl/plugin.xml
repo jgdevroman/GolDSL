@@ -3,7 +3,7 @@
 <plugin>
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package
-			uri = "http://www.example.org/GDSL"
+			uri = "http://www.model.gameOfLife/GDSL"
 			class = "gameOfLife.model.gameOfLife.GameOfLifePackage"
 			genModel = "model/generated/GDSL.genmodel" />
 	</extension>
