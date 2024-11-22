@@ -4,7 +4,7 @@
 package gameOfLife.model.tests
 
 import com.google.inject.Inject
-import gameOfLife.model.gameOfLife.Model
+import gameOfLife.model.gDSL.Model
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper

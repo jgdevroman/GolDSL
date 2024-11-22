@@ -4,7 +4,7 @@
 package gameOfLife.model.tests;
 
 import com.google.inject.Inject;
-import gameOfLife.model.gameOfLife.Model;
+import gameOfLife.model.gDSL.Model;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;

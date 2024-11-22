@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalGDSLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Grid'", "'{'", "'}'", "'Rules'", "'Cell'", "'('", "','", "')'", "'state'", "'='", "'Rule'", "'condition'", "'action'", "'neighbors'", "'<'", "'>'", "'die'", "'live'", "'becomeAlive'", "'ALIVE'", "'DEAD'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Grid'", "':'", "'-'", "'alive'", "'dead'", "'<'", "'='", "'>'", "'survive'", "'becomeAlive'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -36,23 +36,12 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int T__30=30;
-    public static final int T__31=31;
     public static final int RULE_ID=5;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
-    public static final int T__26=26;
-    public static final int T__27=27;
-    public static final int T__28=28;
     public static final int RULE_INT=4;
-    public static final int T__29=29;
-    public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
-    public static final int T__23=23;
-    public static final int T__24=24;
-    public static final int T__25=25;
     public static final int T__20=20;
-    public static final int T__21=21;
 
     // delegates
     // delegators
@@ -130,123 +119,90 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModel"
-    // InternalGDSL.g:72:1: ruleModel returns [EObject current=null] : (otherlv_0= 'Grid' otherlv_1= '{' ( (lv_cells_2_0= ruleCell ) )* otherlv_3= '}' otherlv_4= 'Rules' otherlv_5= '{' ( (lv_rules_6_0= ruleRule ) )* otherlv_7= '}' ) ;
+    // InternalGDSL.g:72:1: ruleModel returns [EObject current=null] : ( ( (lv_grid_0_0= ruleGrid ) )? ( (lv_rules_1_0= ruleRule ) )* ) ;
     public final EObject ruleModel() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token otherlv_1=null;
-        Token otherlv_3=null;
-        Token otherlv_4=null;
-        Token otherlv_5=null;
-        Token otherlv_7=null;
-        EObject lv_cells_2_0 = null;
+        EObject lv_grid_0_0 = null;
 
-        EObject lv_rules_6_0 = null;
+        EObject lv_rules_1_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalGDSL.g:78:2: ( (otherlv_0= 'Grid' otherlv_1= '{' ( (lv_cells_2_0= ruleCell ) )* otherlv_3= '}' otherlv_4= 'Rules' otherlv_5= '{' ( (lv_rules_6_0= ruleRule ) )* otherlv_7= '}' ) )
-            // InternalGDSL.g:79:2: (otherlv_0= 'Grid' otherlv_1= '{' ( (lv_cells_2_0= ruleCell ) )* otherlv_3= '}' otherlv_4= 'Rules' otherlv_5= '{' ( (lv_rules_6_0= ruleRule ) )* otherlv_7= '}' )
+            // InternalGDSL.g:78:2: ( ( ( (lv_grid_0_0= ruleGrid ) )? ( (lv_rules_1_0= ruleRule ) )* ) )
+            // InternalGDSL.g:79:2: ( ( (lv_grid_0_0= ruleGrid ) )? ( (lv_rules_1_0= ruleRule ) )* )
             {
-            // InternalGDSL.g:79:2: (otherlv_0= 'Grid' otherlv_1= '{' ( (lv_cells_2_0= ruleCell ) )* otherlv_3= '}' otherlv_4= 'Rules' otherlv_5= '{' ( (lv_rules_6_0= ruleRule ) )* otherlv_7= '}' )
-            // InternalGDSL.g:80:3: otherlv_0= 'Grid' otherlv_1= '{' ( (lv_cells_2_0= ruleCell ) )* otherlv_3= '}' otherlv_4= 'Rules' otherlv_5= '{' ( (lv_rules_6_0= ruleRule ) )* otherlv_7= '}'
+            // InternalGDSL.g:79:2: ( ( (lv_grid_0_0= ruleGrid ) )? ( (lv_rules_1_0= ruleRule ) )* )
+            // InternalGDSL.g:80:3: ( (lv_grid_0_0= ruleGrid ) )? ( (lv_rules_1_0= ruleRule ) )*
             {
-            otherlv_0=(Token)match(input,11,FOLLOW_3); 
+            // InternalGDSL.g:80:3: ( (lv_grid_0_0= ruleGrid ) )?
+            int alt1=2;
+            int LA1_0 = input.LA(1);
 
-            			newLeafNode(otherlv_0, grammarAccess.getModelAccess().getGridKeyword_0());
-            		
-            otherlv_1=(Token)match(input,12,FOLLOW_4); 
+            if ( (LA1_0==11) ) {
+                alt1=1;
+            }
+            switch (alt1) {
+                case 1 :
+                    // InternalGDSL.g:81:4: (lv_grid_0_0= ruleGrid )
+                    {
+                    // InternalGDSL.g:81:4: (lv_grid_0_0= ruleGrid )
+                    // InternalGDSL.g:82:5: lv_grid_0_0= ruleGrid
+                    {
 
-            			newLeafNode(otherlv_1, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1());
-            		
-            // InternalGDSL.g:88:3: ( (lv_cells_2_0= ruleCell ) )*
-            loop1:
-            do {
-                int alt1=2;
-                int LA1_0 = input.LA(1);
+                    					newCompositeNode(grammarAccess.getModelAccess().getGridGridParserRuleCall_0_0());
+                    				
+                    pushFollow(FOLLOW_3);
+                    lv_grid_0_0=ruleGrid();
 
-                if ( (LA1_0==15) ) {
-                    alt1=1;
-                }
-
-
-                switch (alt1) {
-            	case 1 :
-            	    // InternalGDSL.g:89:4: (lv_cells_2_0= ruleCell )
-            	    {
-            	    // InternalGDSL.g:89:4: (lv_cells_2_0= ruleCell )
-            	    // InternalGDSL.g:90:5: lv_cells_2_0= ruleCell
-            	    {
-
-            	    					newCompositeNode(grammarAccess.getModelAccess().getCellsCellParserRuleCall_2_0());
-            	    				
-            	    pushFollow(FOLLOW_4);
-            	    lv_cells_2_0=ruleCell();
-
-            	    state._fsp--;
+                    state._fsp--;
 
 
-            	    					if (current==null) {
-            	    						current = createModelElementForParent(grammarAccess.getModelRule());
-            	    					}
-            	    					add(
-            	    						current,
-            	    						"cells",
-            	    						lv_cells_2_0,
-            	    						"gameOfLife.model.GDSL.Cell");
-            	    					afterParserOrEnumRuleCall();
-            	    				
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getModelRule());
+                    					}
+                    					set(
+                    						current,
+                    						"grid",
+                    						lv_grid_0_0,
+                    						"gameOfLife.model.GDSL.Grid");
+                    					afterParserOrEnumRuleCall();
+                    				
 
-            	    }
+                    }
 
 
-            	    }
-            	    break;
+                    }
+                    break;
 
-            	default :
-            	    break loop1;
-                }
-            } while (true);
+            }
 
-            otherlv_3=(Token)match(input,13,FOLLOW_5); 
-
-            			newLeafNode(otherlv_3, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_3());
-            		
-            otherlv_4=(Token)match(input,14,FOLLOW_3); 
-
-            			newLeafNode(otherlv_4, grammarAccess.getModelAccess().getRulesKeyword_4());
-            		
-            otherlv_5=(Token)match(input,12,FOLLOW_6); 
-
-            			newLeafNode(otherlv_5, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_5());
-            		
-            // InternalGDSL.g:119:3: ( (lv_rules_6_0= ruleRule ) )*
+            // InternalGDSL.g:99:3: ( (lv_rules_1_0= ruleRule ) )*
             loop2:
             do {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0==21) ) {
+                if ( ((LA2_0>=14 && LA2_0<=15)) ) {
                     alt2=1;
                 }
 
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalGDSL.g:120:4: (lv_rules_6_0= ruleRule )
+            	    // InternalGDSL.g:100:4: (lv_rules_1_0= ruleRule )
             	    {
-            	    // InternalGDSL.g:120:4: (lv_rules_6_0= ruleRule )
-            	    // InternalGDSL.g:121:5: lv_rules_6_0= ruleRule
+            	    // InternalGDSL.g:100:4: (lv_rules_1_0= ruleRule )
+            	    // InternalGDSL.g:101:5: lv_rules_1_0= ruleRule
             	    {
 
-            	    					newCompositeNode(grammarAccess.getModelAccess().getRulesRuleParserRuleCall_6_0());
+            	    					newCompositeNode(grammarAccess.getModelAccess().getRulesRuleParserRuleCall_1_0());
             	    				
-            	    pushFollow(FOLLOW_6);
-            	    lv_rules_6_0=ruleRule();
+            	    pushFollow(FOLLOW_3);
+            	    lv_rules_1_0=ruleRule();
 
             	    state._fsp--;
 
@@ -257,7 +213,7 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
             	    					add(
             	    						current,
             	    						"rules",
-            	    						lv_rules_6_0,
+            	    						lv_rules_1_0,
             	    						"gameOfLife.model.GDSL.Rule");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -273,10 +229,6 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_7=(Token)match(input,13,FOLLOW_2); 
-
-            			newLeafNode(otherlv_7, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_7());
-            		
 
             }
 
@@ -299,25 +251,25 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleModel"
 
 
-    // $ANTLR start "entryRuleCell"
-    // InternalGDSL.g:146:1: entryRuleCell returns [EObject current=null] : iv_ruleCell= ruleCell EOF ;
-    public final EObject entryRuleCell() throws RecognitionException {
+    // $ANTLR start "entryRuleGrid"
+    // InternalGDSL.g:122:1: entryRuleGrid returns [EObject current=null] : iv_ruleGrid= ruleGrid EOF ;
+    public final EObject entryRuleGrid() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleCell = null;
+        EObject iv_ruleGrid = null;
 
 
         try {
-            // InternalGDSL.g:146:45: (iv_ruleCell= ruleCell EOF )
-            // InternalGDSL.g:147:2: iv_ruleCell= ruleCell EOF
+            // InternalGDSL.g:122:45: (iv_ruleGrid= ruleGrid EOF )
+            // InternalGDSL.g:123:2: iv_ruleGrid= ruleGrid EOF
             {
-             newCompositeNode(grammarAccess.getCellRule()); 
+             newCompositeNode(grammarAccess.getGridRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleCell=ruleCell();
+            iv_ruleGrid=ruleGrid();
 
             state._fsp--;
 
-             current =iv_ruleCell; 
+             current =iv_ruleGrid; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -332,135 +284,251 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleCell"
+    // $ANTLR end "entryRuleGrid"
 
 
-    // $ANTLR start "ruleCell"
-    // InternalGDSL.g:153:1: ruleCell returns [EObject current=null] : (otherlv_0= 'Cell' otherlv_1= '(' ( (lv_x_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_y_4_0= RULE_INT ) ) otherlv_5= ')' otherlv_6= 'state' otherlv_7= '=' ( (lv_state_8_0= ruleCellState ) ) ) ;
-    public final EObject ruleCell() throws RecognitionException {
+    // $ANTLR start "ruleGrid"
+    // InternalGDSL.g:129:1: ruleGrid returns [EObject current=null] : (otherlv_0= 'Grid' ( (lv_ranges_1_0= ruleRange ) ) (otherlv_2= ':' ( (lv_ranges_3_0= ruleRange ) ) )* ) ;
+    public final EObject ruleGrid() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_1=null;
-        Token lv_x_2_0=null;
-        Token otherlv_3=null;
-        Token lv_y_4_0=null;
-        Token otherlv_5=null;
-        Token otherlv_6=null;
-        Token otherlv_7=null;
-        Enumerator lv_state_8_0 = null;
+        Token otherlv_2=null;
+        EObject lv_ranges_1_0 = null;
+
+        EObject lv_ranges_3_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalGDSL.g:159:2: ( (otherlv_0= 'Cell' otherlv_1= '(' ( (lv_x_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_y_4_0= RULE_INT ) ) otherlv_5= ')' otherlv_6= 'state' otherlv_7= '=' ( (lv_state_8_0= ruleCellState ) ) ) )
-            // InternalGDSL.g:160:2: (otherlv_0= 'Cell' otherlv_1= '(' ( (lv_x_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_y_4_0= RULE_INT ) ) otherlv_5= ')' otherlv_6= 'state' otherlv_7= '=' ( (lv_state_8_0= ruleCellState ) ) )
+            // InternalGDSL.g:135:2: ( (otherlv_0= 'Grid' ( (lv_ranges_1_0= ruleRange ) ) (otherlv_2= ':' ( (lv_ranges_3_0= ruleRange ) ) )* ) )
+            // InternalGDSL.g:136:2: (otherlv_0= 'Grid' ( (lv_ranges_1_0= ruleRange ) ) (otherlv_2= ':' ( (lv_ranges_3_0= ruleRange ) ) )* )
             {
-            // InternalGDSL.g:160:2: (otherlv_0= 'Cell' otherlv_1= '(' ( (lv_x_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_y_4_0= RULE_INT ) ) otherlv_5= ')' otherlv_6= 'state' otherlv_7= '=' ( (lv_state_8_0= ruleCellState ) ) )
-            // InternalGDSL.g:161:3: otherlv_0= 'Cell' otherlv_1= '(' ( (lv_x_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_y_4_0= RULE_INT ) ) otherlv_5= ')' otherlv_6= 'state' otherlv_7= '=' ( (lv_state_8_0= ruleCellState ) )
+            // InternalGDSL.g:136:2: (otherlv_0= 'Grid' ( (lv_ranges_1_0= ruleRange ) ) (otherlv_2= ':' ( (lv_ranges_3_0= ruleRange ) ) )* )
+            // InternalGDSL.g:137:3: otherlv_0= 'Grid' ( (lv_ranges_1_0= ruleRange ) ) (otherlv_2= ':' ( (lv_ranges_3_0= ruleRange ) ) )*
             {
-            otherlv_0=(Token)match(input,15,FOLLOW_7); 
+            otherlv_0=(Token)match(input,11,FOLLOW_4); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getCellAccess().getCellKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getGridAccess().getGridKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_8); 
-
-            			newLeafNode(otherlv_1, grammarAccess.getCellAccess().getLeftParenthesisKeyword_1());
-            		
-            // InternalGDSL.g:169:3: ( (lv_x_2_0= RULE_INT ) )
-            // InternalGDSL.g:170:4: (lv_x_2_0= RULE_INT )
+            // InternalGDSL.g:141:3: ( (lv_ranges_1_0= ruleRange ) )
+            // InternalGDSL.g:142:4: (lv_ranges_1_0= ruleRange )
             {
-            // InternalGDSL.g:170:4: (lv_x_2_0= RULE_INT )
-            // InternalGDSL.g:171:5: lv_x_2_0= RULE_INT
+            // InternalGDSL.g:142:4: (lv_ranges_1_0= ruleRange )
+            // InternalGDSL.g:143:5: lv_ranges_1_0= ruleRange
             {
-            lv_x_2_0=(Token)match(input,RULE_INT,FOLLOW_9); 
 
-            					newLeafNode(lv_x_2_0, grammarAccess.getCellAccess().getXINTTerminalRuleCall_2_0());
+            					newCompositeNode(grammarAccess.getGridAccess().getRangesRangeParserRuleCall_1_0());
             				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getCellRule());
-            					}
-            					setWithLastConsumed(
-            						current,
-            						"x",
-            						lv_x_2_0,
-            						"org.eclipse.xtext.common.Terminals.INT");
-            				
-
-            }
-
-
-            }
-
-            otherlv_3=(Token)match(input,17,FOLLOW_8); 
-
-            			newLeafNode(otherlv_3, grammarAccess.getCellAccess().getCommaKeyword_3());
-            		
-            // InternalGDSL.g:191:3: ( (lv_y_4_0= RULE_INT ) )
-            // InternalGDSL.g:192:4: (lv_y_4_0= RULE_INT )
-            {
-            // InternalGDSL.g:192:4: (lv_y_4_0= RULE_INT )
-            // InternalGDSL.g:193:5: lv_y_4_0= RULE_INT
-            {
-            lv_y_4_0=(Token)match(input,RULE_INT,FOLLOW_10); 
-
-            					newLeafNode(lv_y_4_0, grammarAccess.getCellAccess().getYINTTerminalRuleCall_4_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getCellRule());
-            					}
-            					setWithLastConsumed(
-            						current,
-            						"y",
-            						lv_y_4_0,
-            						"org.eclipse.xtext.common.Terminals.INT");
-            				
-
-            }
-
-
-            }
-
-            otherlv_5=(Token)match(input,18,FOLLOW_11); 
-
-            			newLeafNode(otherlv_5, grammarAccess.getCellAccess().getRightParenthesisKeyword_5());
-            		
-            otherlv_6=(Token)match(input,19,FOLLOW_12); 
-
-            			newLeafNode(otherlv_6, grammarAccess.getCellAccess().getStateKeyword_6());
-            		
-            otherlv_7=(Token)match(input,20,FOLLOW_13); 
-
-            			newLeafNode(otherlv_7, grammarAccess.getCellAccess().getEqualsSignKeyword_7());
-            		
-            // InternalGDSL.g:221:3: ( (lv_state_8_0= ruleCellState ) )
-            // InternalGDSL.g:222:4: (lv_state_8_0= ruleCellState )
-            {
-            // InternalGDSL.g:222:4: (lv_state_8_0= ruleCellState )
-            // InternalGDSL.g:223:5: lv_state_8_0= ruleCellState
-            {
-
-            					newCompositeNode(grammarAccess.getCellAccess().getStateCellStateEnumRuleCall_8_0());
-            				
-            pushFollow(FOLLOW_2);
-            lv_state_8_0=ruleCellState();
+            pushFollow(FOLLOW_5);
+            lv_ranges_1_0=ruleRange();
 
             state._fsp--;
 
 
             					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getCellRule());
+            						current = createModelElementForParent(grammarAccess.getGridRule());
             					}
-            					set(
+            					add(
             						current,
-            						"state",
-            						lv_state_8_0,
-            						"gameOfLife.model.GDSL.CellState");
+            						"ranges",
+            						lv_ranges_1_0,
+            						"gameOfLife.model.GDSL.Range");
             					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalGDSL.g:160:3: (otherlv_2= ':' ( (lv_ranges_3_0= ruleRange ) ) )*
+            loop3:
+            do {
+                int alt3=2;
+                int LA3_0 = input.LA(1);
+
+                if ( (LA3_0==12) ) {
+                    alt3=1;
+                }
+
+
+                switch (alt3) {
+            	case 1 :
+            	    // InternalGDSL.g:161:4: otherlv_2= ':' ( (lv_ranges_3_0= ruleRange ) )
+            	    {
+            	    otherlv_2=(Token)match(input,12,FOLLOW_4); 
+
+            	    				newLeafNode(otherlv_2, grammarAccess.getGridAccess().getColonKeyword_2_0());
+            	    			
+            	    // InternalGDSL.g:165:4: ( (lv_ranges_3_0= ruleRange ) )
+            	    // InternalGDSL.g:166:5: (lv_ranges_3_0= ruleRange )
+            	    {
+            	    // InternalGDSL.g:166:5: (lv_ranges_3_0= ruleRange )
+            	    // InternalGDSL.g:167:6: lv_ranges_3_0= ruleRange
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getGridAccess().getRangesRangeParserRuleCall_2_1_0());
+            	    					
+            	    pushFollow(FOLLOW_5);
+            	    lv_ranges_3_0=ruleRange();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getGridRule());
+            	    						}
+            	    						add(
+            	    							current,
+            	    							"ranges",
+            	    							lv_ranges_3_0,
+            	    							"gameOfLife.model.GDSL.Range");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop3;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleGrid"
+
+
+    // $ANTLR start "entryRuleRange"
+    // InternalGDSL.g:189:1: entryRuleRange returns [EObject current=null] : iv_ruleRange= ruleRange EOF ;
+    public final EObject entryRuleRange() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleRange = null;
+
+
+        try {
+            // InternalGDSL.g:189:46: (iv_ruleRange= ruleRange EOF )
+            // InternalGDSL.g:190:2: iv_ruleRange= ruleRange EOF
+            {
+             newCompositeNode(grammarAccess.getRangeRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleRange=ruleRange();
+
+            state._fsp--;
+
+             current =iv_ruleRange; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleRange"
+
+
+    // $ANTLR start "ruleRange"
+    // InternalGDSL.g:196:1: ruleRange returns [EObject current=null] : ( ( (lv_start_0_0= RULE_INT ) ) otherlv_1= '-' ( (lv_end_2_0= RULE_INT ) ) ) ;
+    public final EObject ruleRange() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_start_0_0=null;
+        Token otherlv_1=null;
+        Token lv_end_2_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalGDSL.g:202:2: ( ( ( (lv_start_0_0= RULE_INT ) ) otherlv_1= '-' ( (lv_end_2_0= RULE_INT ) ) ) )
+            // InternalGDSL.g:203:2: ( ( (lv_start_0_0= RULE_INT ) ) otherlv_1= '-' ( (lv_end_2_0= RULE_INT ) ) )
+            {
+            // InternalGDSL.g:203:2: ( ( (lv_start_0_0= RULE_INT ) ) otherlv_1= '-' ( (lv_end_2_0= RULE_INT ) ) )
+            // InternalGDSL.g:204:3: ( (lv_start_0_0= RULE_INT ) ) otherlv_1= '-' ( (lv_end_2_0= RULE_INT ) )
+            {
+            // InternalGDSL.g:204:3: ( (lv_start_0_0= RULE_INT ) )
+            // InternalGDSL.g:205:4: (lv_start_0_0= RULE_INT )
+            {
+            // InternalGDSL.g:205:4: (lv_start_0_0= RULE_INT )
+            // InternalGDSL.g:206:5: lv_start_0_0= RULE_INT
+            {
+            lv_start_0_0=(Token)match(input,RULE_INT,FOLLOW_6); 
+
+            					newLeafNode(lv_start_0_0, grammarAccess.getRangeAccess().getStartINTTerminalRuleCall_0_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getRangeRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"start",
+            						lv_start_0_0,
+            						"org.eclipse.xtext.common.Terminals.INT");
+            				
+
+            }
+
+
+            }
+
+            otherlv_1=(Token)match(input,13,FOLLOW_4); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getRangeAccess().getHyphenMinusKeyword_1());
+            		
+            // InternalGDSL.g:226:3: ( (lv_end_2_0= RULE_INT ) )
+            // InternalGDSL.g:227:4: (lv_end_2_0= RULE_INT )
+            {
+            // InternalGDSL.g:227:4: (lv_end_2_0= RULE_INT )
+            // InternalGDSL.g:228:5: lv_end_2_0= RULE_INT
+            {
+            lv_end_2_0=(Token)match(input,RULE_INT,FOLLOW_2); 
+
+            					newLeafNode(lv_end_2_0, grammarAccess.getRangeAccess().getEndINTTerminalRuleCall_2_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getRangeRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"end",
+            						lv_end_2_0,
+            						"org.eclipse.xtext.common.Terminals.INT");
             				
 
             }
@@ -487,11 +555,11 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleCell"
+    // $ANTLR end "ruleRange"
 
 
     // $ANTLR start "entryRuleRule"
-    // InternalGDSL.g:244:1: entryRuleRule returns [EObject current=null] : iv_ruleRule= ruleRule EOF ;
+    // InternalGDSL.g:248:1: entryRuleRule returns [EObject current=null] : iv_ruleRule= ruleRule EOF ;
     public final EObject entryRuleRule() throws RecognitionException {
         EObject current = null;
 
@@ -499,8 +567,8 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGDSL.g:244:45: (iv_ruleRule= ruleRule EOF )
-            // InternalGDSL.g:245:2: iv_ruleRule= ruleRule EOF
+            // InternalGDSL.g:248:45: (iv_ruleRule= ruleRule EOF )
+            // InternalGDSL.g:249:2: iv_ruleRule= ruleRule EOF
             {
              newCompositeNode(grammarAccess.getRuleRule()); 
             pushFollow(FOLLOW_1);
@@ -527,53 +595,75 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRule"
-    // InternalGDSL.g:251:1: ruleRule returns [EObject current=null] : (otherlv_0= 'Rule' otherlv_1= '{' otherlv_2= 'condition' ( (lv_condition_3_0= ruleCondition ) ) otherlv_4= 'action' ( (lv_action_5_0= ruleAction ) ) otherlv_6= '}' ) ;
+    // InternalGDSL.g:255:1: ruleRule returns [EObject current=null] : ( ( (lv_state_0_0= ruleCellState ) ) otherlv_1= ':' ( (lv_condition_2_0= ruleCondition ) ) otherlv_3= ':' ( (lv_action_4_0= ruleAction ) ) ) ;
     public final EObject ruleRule() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
         Token otherlv_1=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        EObject lv_condition_3_0 = null;
+        Token otherlv_3=null;
+        Enumerator lv_state_0_0 = null;
 
-        AntlrDatatypeRuleToken lv_action_5_0 = null;
+        EObject lv_condition_2_0 = null;
+
+        Enumerator lv_action_4_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalGDSL.g:257:2: ( (otherlv_0= 'Rule' otherlv_1= '{' otherlv_2= 'condition' ( (lv_condition_3_0= ruleCondition ) ) otherlv_4= 'action' ( (lv_action_5_0= ruleAction ) ) otherlv_6= '}' ) )
-            // InternalGDSL.g:258:2: (otherlv_0= 'Rule' otherlv_1= '{' otherlv_2= 'condition' ( (lv_condition_3_0= ruleCondition ) ) otherlv_4= 'action' ( (lv_action_5_0= ruleAction ) ) otherlv_6= '}' )
+            // InternalGDSL.g:261:2: ( ( ( (lv_state_0_0= ruleCellState ) ) otherlv_1= ':' ( (lv_condition_2_0= ruleCondition ) ) otherlv_3= ':' ( (lv_action_4_0= ruleAction ) ) ) )
+            // InternalGDSL.g:262:2: ( ( (lv_state_0_0= ruleCellState ) ) otherlv_1= ':' ( (lv_condition_2_0= ruleCondition ) ) otherlv_3= ':' ( (lv_action_4_0= ruleAction ) ) )
             {
-            // InternalGDSL.g:258:2: (otherlv_0= 'Rule' otherlv_1= '{' otherlv_2= 'condition' ( (lv_condition_3_0= ruleCondition ) ) otherlv_4= 'action' ( (lv_action_5_0= ruleAction ) ) otherlv_6= '}' )
-            // InternalGDSL.g:259:3: otherlv_0= 'Rule' otherlv_1= '{' otherlv_2= 'condition' ( (lv_condition_3_0= ruleCondition ) ) otherlv_4= 'action' ( (lv_action_5_0= ruleAction ) ) otherlv_6= '}'
+            // InternalGDSL.g:262:2: ( ( (lv_state_0_0= ruleCellState ) ) otherlv_1= ':' ( (lv_condition_2_0= ruleCondition ) ) otherlv_3= ':' ( (lv_action_4_0= ruleAction ) ) )
+            // InternalGDSL.g:263:3: ( (lv_state_0_0= ruleCellState ) ) otherlv_1= ':' ( (lv_condition_2_0= ruleCondition ) ) otherlv_3= ':' ( (lv_action_4_0= ruleAction ) )
             {
-            otherlv_0=(Token)match(input,21,FOLLOW_3); 
-
-            			newLeafNode(otherlv_0, grammarAccess.getRuleAccess().getRuleKeyword_0());
-            		
-            otherlv_1=(Token)match(input,12,FOLLOW_14); 
-
-            			newLeafNode(otherlv_1, grammarAccess.getRuleAccess().getLeftCurlyBracketKeyword_1());
-            		
-            otherlv_2=(Token)match(input,22,FOLLOW_15); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getRuleAccess().getConditionKeyword_2());
-            		
-            // InternalGDSL.g:271:3: ( (lv_condition_3_0= ruleCondition ) )
-            // InternalGDSL.g:272:4: (lv_condition_3_0= ruleCondition )
+            // InternalGDSL.g:263:3: ( (lv_state_0_0= ruleCellState ) )
+            // InternalGDSL.g:264:4: (lv_state_0_0= ruleCellState )
             {
-            // InternalGDSL.g:272:4: (lv_condition_3_0= ruleCondition )
-            // InternalGDSL.g:273:5: lv_condition_3_0= ruleCondition
+            // InternalGDSL.g:264:4: (lv_state_0_0= ruleCellState )
+            // InternalGDSL.g:265:5: lv_state_0_0= ruleCellState
             {
 
-            					newCompositeNode(grammarAccess.getRuleAccess().getConditionConditionParserRuleCall_3_0());
+            					newCompositeNode(grammarAccess.getRuleAccess().getStateCellStateEnumRuleCall_0_0());
             				
-            pushFollow(FOLLOW_16);
-            lv_condition_3_0=ruleCondition();
+            pushFollow(FOLLOW_7);
+            lv_state_0_0=ruleCellState();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getRuleRule());
+            					}
+            					set(
+            						current,
+            						"state",
+            						lv_state_0_0,
+            						"gameOfLife.model.GDSL.CellState");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            otherlv_1=(Token)match(input,12,FOLLOW_8); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getRuleAccess().getColonKeyword_1());
+            		
+            // InternalGDSL.g:286:3: ( (lv_condition_2_0= ruleCondition ) )
+            // InternalGDSL.g:287:4: (lv_condition_2_0= ruleCondition )
+            {
+            // InternalGDSL.g:287:4: (lv_condition_2_0= ruleCondition )
+            // InternalGDSL.g:288:5: lv_condition_2_0= ruleCondition
+            {
+
+            					newCompositeNode(grammarAccess.getRuleAccess().getConditionConditionParserRuleCall_2_0());
+            				
+            pushFollow(FOLLOW_7);
+            lv_condition_2_0=ruleCondition();
 
             state._fsp--;
 
@@ -584,7 +674,7 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"condition",
-            						lv_condition_3_0,
+            						lv_condition_2_0,
             						"gameOfLife.model.GDSL.Condition");
             					afterParserOrEnumRuleCall();
             				
@@ -594,21 +684,21 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,23,FOLLOW_17); 
+            otherlv_3=(Token)match(input,12,FOLLOW_9); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getRuleAccess().getActionKeyword_4());
+            			newLeafNode(otherlv_3, grammarAccess.getRuleAccess().getColonKeyword_3());
             		
-            // InternalGDSL.g:294:3: ( (lv_action_5_0= ruleAction ) )
-            // InternalGDSL.g:295:4: (lv_action_5_0= ruleAction )
+            // InternalGDSL.g:309:3: ( (lv_action_4_0= ruleAction ) )
+            // InternalGDSL.g:310:4: (lv_action_4_0= ruleAction )
             {
-            // InternalGDSL.g:295:4: (lv_action_5_0= ruleAction )
-            // InternalGDSL.g:296:5: lv_action_5_0= ruleAction
+            // InternalGDSL.g:310:4: (lv_action_4_0= ruleAction )
+            // InternalGDSL.g:311:5: lv_action_4_0= ruleAction
             {
 
-            					newCompositeNode(grammarAccess.getRuleAccess().getActionActionParserRuleCall_5_0());
+            					newCompositeNode(grammarAccess.getRuleAccess().getActionActionEnumRuleCall_4_0());
             				
-            pushFollow(FOLLOW_18);
-            lv_action_5_0=ruleAction();
+            pushFollow(FOLLOW_2);
+            lv_action_4_0=ruleAction();
 
             state._fsp--;
 
@@ -619,7 +709,7 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"action",
-            						lv_action_5_0,
+            						lv_action_4_0,
             						"gameOfLife.model.GDSL.Action");
             					afterParserOrEnumRuleCall();
             				
@@ -629,10 +719,6 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,13,FOLLOW_2); 
-
-            			newLeafNode(otherlv_6, grammarAccess.getRuleAccess().getRightCurlyBracketKeyword_6());
-            		
 
             }
 
@@ -656,7 +742,7 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCondition"
-    // InternalGDSL.g:321:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
+    // InternalGDSL.g:332:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
     public final EObject entryRuleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -664,8 +750,8 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGDSL.g:321:50: (iv_ruleCondition= ruleCondition EOF )
-            // InternalGDSL.g:322:2: iv_ruleCondition= ruleCondition EOF
+            // InternalGDSL.g:332:50: (iv_ruleCondition= ruleCondition EOF )
+            // InternalGDSL.g:333:2: iv_ruleCondition= ruleCondition EOF
             {
              newCompositeNode(grammarAccess.getConditionRule()); 
             pushFollow(FOLLOW_1);
@@ -692,40 +778,35 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCondition"
-    // InternalGDSL.g:328:1: ruleCondition returns [EObject current=null] : (otherlv_0= 'neighbors' ( (lv_operator_1_0= ruleOperator ) ) ( (lv_value_2_0= RULE_INT ) ) ) ;
+    // InternalGDSL.g:339:1: ruleCondition returns [EObject current=null] : ( ( (lv_operator_0_0= ruleRelationalOperator ) ) ( (lv_value_1_0= RULE_INT ) ) ) ;
     public final EObject ruleCondition() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token lv_value_2_0=null;
-        AntlrDatatypeRuleToken lv_operator_1_0 = null;
+        Token lv_value_1_0=null;
+        Enumerator lv_operator_0_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalGDSL.g:334:2: ( (otherlv_0= 'neighbors' ( (lv_operator_1_0= ruleOperator ) ) ( (lv_value_2_0= RULE_INT ) ) ) )
-            // InternalGDSL.g:335:2: (otherlv_0= 'neighbors' ( (lv_operator_1_0= ruleOperator ) ) ( (lv_value_2_0= RULE_INT ) ) )
+            // InternalGDSL.g:345:2: ( ( ( (lv_operator_0_0= ruleRelationalOperator ) ) ( (lv_value_1_0= RULE_INT ) ) ) )
+            // InternalGDSL.g:346:2: ( ( (lv_operator_0_0= ruleRelationalOperator ) ) ( (lv_value_1_0= RULE_INT ) ) )
             {
-            // InternalGDSL.g:335:2: (otherlv_0= 'neighbors' ( (lv_operator_1_0= ruleOperator ) ) ( (lv_value_2_0= RULE_INT ) ) )
-            // InternalGDSL.g:336:3: otherlv_0= 'neighbors' ( (lv_operator_1_0= ruleOperator ) ) ( (lv_value_2_0= RULE_INT ) )
+            // InternalGDSL.g:346:2: ( ( (lv_operator_0_0= ruleRelationalOperator ) ) ( (lv_value_1_0= RULE_INT ) ) )
+            // InternalGDSL.g:347:3: ( (lv_operator_0_0= ruleRelationalOperator ) ) ( (lv_value_1_0= RULE_INT ) )
             {
-            otherlv_0=(Token)match(input,24,FOLLOW_19); 
-
-            			newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getNeighborsKeyword_0());
-            		
-            // InternalGDSL.g:340:3: ( (lv_operator_1_0= ruleOperator ) )
-            // InternalGDSL.g:341:4: (lv_operator_1_0= ruleOperator )
+            // InternalGDSL.g:347:3: ( (lv_operator_0_0= ruleRelationalOperator ) )
+            // InternalGDSL.g:348:4: (lv_operator_0_0= ruleRelationalOperator )
             {
-            // InternalGDSL.g:341:4: (lv_operator_1_0= ruleOperator )
-            // InternalGDSL.g:342:5: lv_operator_1_0= ruleOperator
+            // InternalGDSL.g:348:4: (lv_operator_0_0= ruleRelationalOperator )
+            // InternalGDSL.g:349:5: lv_operator_0_0= ruleRelationalOperator
             {
 
-            					newCompositeNode(grammarAccess.getConditionAccess().getOperatorOperatorParserRuleCall_1_0());
+            					newCompositeNode(grammarAccess.getConditionAccess().getOperatorRelationalOperatorEnumRuleCall_0_0());
             				
-            pushFollow(FOLLOW_8);
-            lv_operator_1_0=ruleOperator();
+            pushFollow(FOLLOW_4);
+            lv_operator_0_0=ruleRelationalOperator();
 
             state._fsp--;
 
@@ -736,8 +817,8 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"operator",
-            						lv_operator_1_0,
-            						"gameOfLife.model.GDSL.Operator");
+            						lv_operator_0_0,
+            						"gameOfLife.model.GDSL.RelationalOperator");
             					afterParserOrEnumRuleCall();
             				
 
@@ -746,15 +827,15 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalGDSL.g:359:3: ( (lv_value_2_0= RULE_INT ) )
-            // InternalGDSL.g:360:4: (lv_value_2_0= RULE_INT )
+            // InternalGDSL.g:366:3: ( (lv_value_1_0= RULE_INT ) )
+            // InternalGDSL.g:367:4: (lv_value_1_0= RULE_INT )
             {
-            // InternalGDSL.g:360:4: (lv_value_2_0= RULE_INT )
-            // InternalGDSL.g:361:5: lv_value_2_0= RULE_INT
+            // InternalGDSL.g:367:4: (lv_value_1_0= RULE_INT )
+            // InternalGDSL.g:368:5: lv_value_1_0= RULE_INT
             {
-            lv_value_2_0=(Token)match(input,RULE_INT,FOLLOW_2); 
+            lv_value_1_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
-            					newLeafNode(lv_value_2_0, grammarAccess.getConditionAccess().getValueINTTerminalRuleCall_2_0());
+            					newLeafNode(lv_value_1_0, grammarAccess.getConditionAccess().getValueINTTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -763,7 +844,7 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
             					setWithLastConsumed(
             						current,
             						"value",
-            						lv_value_2_0,
+            						lv_value_1_0,
             						"org.eclipse.xtext.common.Terminals.INT");
             				
 
@@ -794,270 +875,8 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleCondition"
 
 
-    // $ANTLR start "entryRuleOperator"
-    // InternalGDSL.g:381:1: entryRuleOperator returns [String current=null] : iv_ruleOperator= ruleOperator EOF ;
-    public final String entryRuleOperator() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleOperator = null;
-
-
-        try {
-            // InternalGDSL.g:381:48: (iv_ruleOperator= ruleOperator EOF )
-            // InternalGDSL.g:382:2: iv_ruleOperator= ruleOperator EOF
-            {
-             newCompositeNode(grammarAccess.getOperatorRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleOperator=ruleOperator();
-
-            state._fsp--;
-
-             current =iv_ruleOperator.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleOperator"
-
-
-    // $ANTLR start "ruleOperator"
-    // InternalGDSL.g:388:1: ruleOperator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '<' | kw= '=' | kw= '>' ) ;
-    public final AntlrDatatypeRuleToken ruleOperator() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token kw=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalGDSL.g:394:2: ( (kw= '<' | kw= '=' | kw= '>' ) )
-            // InternalGDSL.g:395:2: (kw= '<' | kw= '=' | kw= '>' )
-            {
-            // InternalGDSL.g:395:2: (kw= '<' | kw= '=' | kw= '>' )
-            int alt3=3;
-            switch ( input.LA(1) ) {
-            case 25:
-                {
-                alt3=1;
-                }
-                break;
-            case 20:
-                {
-                alt3=2;
-                }
-                break;
-            case 26:
-                {
-                alt3=3;
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 3, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt3) {
-                case 1 :
-                    // InternalGDSL.g:396:3: kw= '<'
-                    {
-                    kw=(Token)match(input,25,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getOperatorAccess().getLessThanSignKeyword_0());
-                    		
-
-                    }
-                    break;
-                case 2 :
-                    // InternalGDSL.g:402:3: kw= '='
-                    {
-                    kw=(Token)match(input,20,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getOperatorAccess().getEqualsSignKeyword_1());
-                    		
-
-                    }
-                    break;
-                case 3 :
-                    // InternalGDSL.g:408:3: kw= '>'
-                    {
-                    kw=(Token)match(input,26,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getOperatorAccess().getGreaterThanSignKeyword_2());
-                    		
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleOperator"
-
-
-    // $ANTLR start "entryRuleAction"
-    // InternalGDSL.g:417:1: entryRuleAction returns [String current=null] : iv_ruleAction= ruleAction EOF ;
-    public final String entryRuleAction() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleAction = null;
-
-
-        try {
-            // InternalGDSL.g:417:46: (iv_ruleAction= ruleAction EOF )
-            // InternalGDSL.g:418:2: iv_ruleAction= ruleAction EOF
-            {
-             newCompositeNode(grammarAccess.getActionRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleAction=ruleAction();
-
-            state._fsp--;
-
-             current =iv_ruleAction.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleAction"
-
-
-    // $ANTLR start "ruleAction"
-    // InternalGDSL.g:424:1: ruleAction returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'die' | kw= 'live' | kw= 'becomeAlive' ) ;
-    public final AntlrDatatypeRuleToken ruleAction() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token kw=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalGDSL.g:430:2: ( (kw= 'die' | kw= 'live' | kw= 'becomeAlive' ) )
-            // InternalGDSL.g:431:2: (kw= 'die' | kw= 'live' | kw= 'becomeAlive' )
-            {
-            // InternalGDSL.g:431:2: (kw= 'die' | kw= 'live' | kw= 'becomeAlive' )
-            int alt4=3;
-            switch ( input.LA(1) ) {
-            case 27:
-                {
-                alt4=1;
-                }
-                break;
-            case 28:
-                {
-                alt4=2;
-                }
-                break;
-            case 29:
-                {
-                alt4=3;
-                }
-                break;
-            default:
-                NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt4) {
-                case 1 :
-                    // InternalGDSL.g:432:3: kw= 'die'
-                    {
-                    kw=(Token)match(input,27,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getActionAccess().getDieKeyword_0());
-                    		
-
-                    }
-                    break;
-                case 2 :
-                    // InternalGDSL.g:438:3: kw= 'live'
-                    {
-                    kw=(Token)match(input,28,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getActionAccess().getLiveKeyword_1());
-                    		
-
-                    }
-                    break;
-                case 3 :
-                    // InternalGDSL.g:444:3: kw= 'becomeAlive'
-                    {
-                    kw=(Token)match(input,29,FOLLOW_2); 
-
-                    			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getActionAccess().getBecomeAliveKeyword_2());
-                    		
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleAction"
-
-
     // $ANTLR start "ruleCellState"
-    // InternalGDSL.g:453:1: ruleCellState returns [Enumerator current=null] : ( (enumLiteral_0= 'ALIVE' ) | (enumLiteral_1= 'DEAD' ) ) ;
+    // InternalGDSL.g:388:1: ruleCellState returns [Enumerator current=null] : ( (enumLiteral_0= 'alive' ) | (enumLiteral_1= 'dead' ) ) ;
     public final Enumerator ruleCellState() throws RecognitionException {
         Enumerator current = null;
 
@@ -1068,33 +887,33 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGDSL.g:459:2: ( ( (enumLiteral_0= 'ALIVE' ) | (enumLiteral_1= 'DEAD' ) ) )
-            // InternalGDSL.g:460:2: ( (enumLiteral_0= 'ALIVE' ) | (enumLiteral_1= 'DEAD' ) )
+            // InternalGDSL.g:394:2: ( ( (enumLiteral_0= 'alive' ) | (enumLiteral_1= 'dead' ) ) )
+            // InternalGDSL.g:395:2: ( (enumLiteral_0= 'alive' ) | (enumLiteral_1= 'dead' ) )
             {
-            // InternalGDSL.g:460:2: ( (enumLiteral_0= 'ALIVE' ) | (enumLiteral_1= 'DEAD' ) )
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // InternalGDSL.g:395:2: ( (enumLiteral_0= 'alive' ) | (enumLiteral_1= 'dead' ) )
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            if ( (LA5_0==30) ) {
-                alt5=1;
+            if ( (LA4_0==14) ) {
+                alt4=1;
             }
-            else if ( (LA5_0==31) ) {
-                alt5=2;
+            else if ( (LA4_0==15) ) {
+                alt4=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
-            switch (alt5) {
+            switch (alt4) {
                 case 1 :
-                    // InternalGDSL.g:461:3: (enumLiteral_0= 'ALIVE' )
+                    // InternalGDSL.g:396:3: (enumLiteral_0= 'alive' )
                     {
-                    // InternalGDSL.g:461:3: (enumLiteral_0= 'ALIVE' )
-                    // InternalGDSL.g:462:4: enumLiteral_0= 'ALIVE'
+                    // InternalGDSL.g:396:3: (enumLiteral_0= 'alive' )
+                    // InternalGDSL.g:397:4: enumLiteral_0= 'alive'
                     {
-                    enumLiteral_0=(Token)match(input,30,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,14,FOLLOW_2); 
 
                     				current = grammarAccess.getCellStateAccess().getALIVEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getCellStateAccess().getALIVEEnumLiteralDeclaration_0());
@@ -1106,12 +925,12 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalGDSL.g:469:3: (enumLiteral_1= 'DEAD' )
+                    // InternalGDSL.g:404:3: (enumLiteral_1= 'dead' )
                     {
-                    // InternalGDSL.g:469:3: (enumLiteral_1= 'DEAD' )
-                    // InternalGDSL.g:470:4: enumLiteral_1= 'DEAD'
+                    // InternalGDSL.g:404:3: (enumLiteral_1= 'dead' )
+                    // InternalGDSL.g:405:4: enumLiteral_1= 'dead'
                     {
-                    enumLiteral_1=(Token)match(input,31,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,15,FOLLOW_2); 
 
                     				current = grammarAccess.getCellStateAccess().getDEADEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getCellStateAccess().getDEADEnumLiteralDeclaration_1());
@@ -1143,6 +962,209 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleCellState"
 
+
+    // $ANTLR start "ruleRelationalOperator"
+    // InternalGDSL.g:415:1: ruleRelationalOperator returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '=' ) | (enumLiteral_2= '>' ) ) ;
+    public final Enumerator ruleRelationalOperator() throws RecognitionException {
+        Enumerator current = null;
+
+        Token enumLiteral_0=null;
+        Token enumLiteral_1=null;
+        Token enumLiteral_2=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalGDSL.g:421:2: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '=' ) | (enumLiteral_2= '>' ) ) )
+            // InternalGDSL.g:422:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '=' ) | (enumLiteral_2= '>' ) )
+            {
+            // InternalGDSL.g:422:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '=' ) | (enumLiteral_2= '>' ) )
+            int alt5=3;
+            switch ( input.LA(1) ) {
+            case 16:
+                {
+                alt5=1;
+                }
+                break;
+            case 17:
+                {
+                alt5=2;
+                }
+                break;
+            case 18:
+                {
+                alt5=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 5, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt5) {
+                case 1 :
+                    // InternalGDSL.g:423:3: (enumLiteral_0= '<' )
+                    {
+                    // InternalGDSL.g:423:3: (enumLiteral_0= '<' )
+                    // InternalGDSL.g:424:4: enumLiteral_0= '<'
+                    {
+                    enumLiteral_0=(Token)match(input,16,FOLLOW_2); 
+
+                    				current = grammarAccess.getRelationalOperatorAccess().getLESS_THANEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getRelationalOperatorAccess().getLESS_THANEnumLiteralDeclaration_0());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalGDSL.g:431:3: (enumLiteral_1= '=' )
+                    {
+                    // InternalGDSL.g:431:3: (enumLiteral_1= '=' )
+                    // InternalGDSL.g:432:4: enumLiteral_1= '='
+                    {
+                    enumLiteral_1=(Token)match(input,17,FOLLOW_2); 
+
+                    				current = grammarAccess.getRelationalOperatorAccess().getEQUALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getRelationalOperatorAccess().getEQUALEnumLiteralDeclaration_1());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalGDSL.g:439:3: (enumLiteral_2= '>' )
+                    {
+                    // InternalGDSL.g:439:3: (enumLiteral_2= '>' )
+                    // InternalGDSL.g:440:4: enumLiteral_2= '>'
+                    {
+                    enumLiteral_2=(Token)match(input,18,FOLLOW_2); 
+
+                    				current = grammarAccess.getRelationalOperatorAccess().getGREATER_THANEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_2, grammarAccess.getRelationalOperatorAccess().getGREATER_THANEnumLiteralDeclaration_2());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleRelationalOperator"
+
+
+    // $ANTLR start "ruleAction"
+    // InternalGDSL.g:450:1: ruleAction returns [Enumerator current=null] : ( (enumLiteral_0= 'survive' ) | (enumLiteral_1= 'becomeAlive' ) ) ;
+    public final Enumerator ruleAction() throws RecognitionException {
+        Enumerator current = null;
+
+        Token enumLiteral_0=null;
+        Token enumLiteral_1=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalGDSL.g:456:2: ( ( (enumLiteral_0= 'survive' ) | (enumLiteral_1= 'becomeAlive' ) ) )
+            // InternalGDSL.g:457:2: ( (enumLiteral_0= 'survive' ) | (enumLiteral_1= 'becomeAlive' ) )
+            {
+            // InternalGDSL.g:457:2: ( (enumLiteral_0= 'survive' ) | (enumLiteral_1= 'becomeAlive' ) )
+            int alt6=2;
+            int LA6_0 = input.LA(1);
+
+            if ( (LA6_0==19) ) {
+                alt6=1;
+            }
+            else if ( (LA6_0==20) ) {
+                alt6=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 6, 0, input);
+
+                throw nvae;
+            }
+            switch (alt6) {
+                case 1 :
+                    // InternalGDSL.g:458:3: (enumLiteral_0= 'survive' )
+                    {
+                    // InternalGDSL.g:458:3: (enumLiteral_0= 'survive' )
+                    // InternalGDSL.g:459:4: enumLiteral_0= 'survive'
+                    {
+                    enumLiteral_0=(Token)match(input,19,FOLLOW_2); 
+
+                    				current = grammarAccess.getActionAccess().getSURVIVEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getActionAccess().getSURVIVEEnumLiteralDeclaration_0());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalGDSL.g:466:3: (enumLiteral_1= 'becomeAlive' )
+                    {
+                    // InternalGDSL.g:466:3: (enumLiteral_1= 'becomeAlive' )
+                    // InternalGDSL.g:467:4: enumLiteral_1= 'becomeAlive'
+                    {
+                    enumLiteral_1=(Token)match(input,20,FOLLOW_2); 
+
+                    				current = grammarAccess.getActionAccess().getBECOME_ALIVEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getActionAccess().getBECOME_ALIVEEnumLiteralDeclaration_1());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleAction"
+
     // Delegated rules
 
 
@@ -1150,22 +1172,12 @@ public class InternalGDSLParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x000000000000A000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000202000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x00000000C0000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000038000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000006100000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x000000000000C002L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001002L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000070000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000180000L});
 
 }

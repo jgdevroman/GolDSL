@@ -13,7 +13,7 @@ public abstract class AbstractGDSLValidator extends AbstractDeclarativeValidator
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
-		result.add(gameOfLife.model.gameOfLife.GameOfLifePackage.eINSTANCE);
+		result.add(gameOfLife.model.gDSL.GDSLPackage.eINSTANCE);
 		return result;
 	}
 }

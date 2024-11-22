@@ -4,11 +4,12 @@
 package gameOfLife.model.serializer;
 
 import com.google.inject.Inject;
-import gameOfLife.model.gameOfLife.Cell;
-import gameOfLife.model.gameOfLife.Condition;
-import gameOfLife.model.gameOfLife.GameOfLifePackage;
-import gameOfLife.model.gameOfLife.Model;
-import gameOfLife.model.gameOfLife.Rule;
+import gameOfLife.model.gDSL.Condition;
+import gameOfLife.model.gDSL.GDSLPackage;
+import gameOfLife.model.gDSL.Grid;
+import gameOfLife.model.gDSL.Model;
+import gameOfLife.model.gDSL.Range;
+import gameOfLife.model.gDSL.Rule;
 import gameOfLife.model.services.GDSLGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -33,18 +34,21 @@ public class GDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		ParserRule rule = context.getParserRule();
 		Action action = context.getAssignedAction();
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
-		if (epackage == GameOfLifePackage.eINSTANCE)
+		if (epackage == GDSLPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case GameOfLifePackage.CELL:
-				sequence_Cell(context, (Cell) semanticObject); 
-				return; 
-			case GameOfLifePackage.CONDITION:
+			case GDSLPackage.CONDITION:
 				sequence_Condition(context, (Condition) semanticObject); 
 				return; 
-			case GameOfLifePackage.MODEL:
+			case GDSLPackage.GRID:
+				sequence_Grid(context, (Grid) semanticObject); 
+				return; 
+			case GDSLPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case GameOfLifePackage.RULE:
+			case GDSLPackage.RANGE:
+				sequence_Range(context, (Range) semanticObject); 
+				return; 
+			case GDSLPackage.RULE:
 				sequence_Rule(context, (Rule) semanticObject); 
 				return; 
 			}
@@ -55,25 +59,22 @@ public class GDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Cell returns Cell
+	 *     Condition returns Condition
 	 *
 	 * Constraint:
-	 *     (x=INT y=INT state=CellState)
+	 *     (operator=RelationalOperator value=INT)
 	 * </pre>
 	 */
-	protected void sequence_Cell(ISerializationContext context, Cell semanticObject) {
+	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GameOfLifePackage.Literals.CELL__X) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GameOfLifePackage.Literals.CELL__X));
-			if (transientValues.isValueTransient(semanticObject, GameOfLifePackage.Literals.CELL__Y) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GameOfLifePackage.Literals.CELL__Y));
-			if (transientValues.isValueTransient(semanticObject, GameOfLifePackage.Literals.CELL__STATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GameOfLifePackage.Literals.CELL__STATE));
+			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.CONDITION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.CONDITION__OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.CONDITION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.CONDITION__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCellAccess().getXINTTerminalRuleCall_2_0(), semanticObject.getX());
-		feeder.accept(grammarAccess.getCellAccess().getYINTTerminalRuleCall_4_0(), semanticObject.getY());
-		feeder.accept(grammarAccess.getCellAccess().getStateCellStateEnumRuleCall_8_0(), semanticObject.getState());
+		feeder.accept(grammarAccess.getConditionAccess().getOperatorRelationalOperatorEnumRuleCall_0_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getConditionAccess().getValueINTTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -81,23 +82,14 @@ public class GDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Condition returns Condition
+	 *     Grid returns Grid
 	 *
 	 * Constraint:
-	 *     (operator=Operator value=INT)
+	 *     (ranges+=Range ranges+=Range*)
 	 * </pre>
 	 */
-	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GameOfLifePackage.Literals.CONDITION__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GameOfLifePackage.Literals.CONDITION__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, GameOfLifePackage.Literals.CONDITION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GameOfLifePackage.Literals.CONDITION__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConditionAccess().getOperatorOperatorParserRuleCall_1_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getConditionAccess().getValueINTTerminalRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
+	protected void sequence_Grid(ISerializationContext context, Grid semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -107,7 +99,7 @@ public class GDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (cells+=Cell* rules+=Rule*)
+	 *     ((grid=Grid rules+=Rule+) | rules+=Rule+)?
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
@@ -118,22 +110,48 @@ public class GDSLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Range returns Range
+	 *
+	 * Constraint:
+	 *     (start=INT end=INT)
+	 * </pre>
+	 */
+	protected void sequence_Range(ISerializationContext context, Range semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.RANGE__START) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.RANGE__START));
+			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.RANGE__END) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.RANGE__END));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRangeAccess().getStartINTTerminalRuleCall_0_0(), semanticObject.getStart());
+		feeder.accept(grammarAccess.getRangeAccess().getEndINTTerminalRuleCall_2_0(), semanticObject.getEnd());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Rule returns Rule
 	 *
 	 * Constraint:
-	 *     (condition=Condition action=Action)
+	 *     (state=CellState condition=Condition action=Action)
 	 * </pre>
 	 */
 	protected void sequence_Rule(ISerializationContext context, Rule semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GameOfLifePackage.Literals.RULE__CONDITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GameOfLifePackage.Literals.RULE__CONDITION));
-			if (transientValues.isValueTransient(semanticObject, GameOfLifePackage.Literals.RULE__ACTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GameOfLifePackage.Literals.RULE__ACTION));
+			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.RULE__STATE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.RULE__STATE));
+			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.RULE__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.RULE__CONDITION));
+			if (transientValues.isValueTransient(semanticObject, GDSLPackage.Literals.RULE__ACTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GDSLPackage.Literals.RULE__ACTION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRuleAccess().getConditionConditionParserRuleCall_3_0(), semanticObject.getCondition());
-		feeder.accept(grammarAccess.getRuleAccess().getActionActionParserRuleCall_5_0(), semanticObject.getAction());
+		feeder.accept(grammarAccess.getRuleAccess().getStateCellStateEnumRuleCall_0_0(), semanticObject.getState());
+		feeder.accept(grammarAccess.getRuleAccess().getConditionConditionParserRuleCall_2_0(), semanticObject.getCondition());
+		feeder.accept(grammarAccess.getRuleAccess().getActionActionEnumRuleCall_4_0(), semanticObject.getAction());
 		feeder.finish();
 	}
 	

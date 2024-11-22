@@ -5,7 +5,7 @@ package gameOfLife.model;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import gameOfLife.model.gameOfLife.GameOfLifePackage;
+import gameOfLife.model.gDSL.GDSLPackage;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.ISetup;
@@ -30,8 +30,8 @@ public class GDSLStandaloneSetupGenerated implements ISetup {
 	}
 	
 	public void register(Injector injector) {
-		if (!EPackage.Registry.INSTANCE.containsKey("http://www.example.org/GDSL")) {
-			EPackage.Registry.INSTANCE.put("http://www.example.org/GDSL", GameOfLifePackage.eINSTANCE);
+		if (!EPackage.Registry.INSTANCE.containsKey("http://www.model.gameOfLife/GDSL")) {
+			EPackage.Registry.INSTANCE.put("http://www.model.gameOfLife/GDSL", GDSLPackage.eINSTANCE);
 		}
 		IResourceFactory resourceFactory = injector.getInstance(IResourceFactory.class);
 		IResourceServiceProvider serviceProvider = injector.getInstance(IResourceServiceProvider.class);
